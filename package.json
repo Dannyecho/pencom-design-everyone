@@ -4,7 +4,7 @@
   "private": true,
   "description": "PenCom website, \"for everyone\" theme (Next.js).",
   "scripts": {
-    "dev": "next dev --port ${PORT:-3010}",
+    "dev": "next dev --webpack --port ${PORT:-3010}",
     "build": "next build --webpack",
     "start": "next start",
     "typecheck": "tsc --noEmit",
