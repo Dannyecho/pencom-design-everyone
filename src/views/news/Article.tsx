@@ -64,7 +64,7 @@ function useShare(a: A) {
 
 function ShareRail({ a, vertical }: { a: A; vertical?: boolean }) {
   const { links, copy, copied, native } = useShare(a);
-  const btn = "group relative flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-600 transition hover:-translate-y-0.5 hover:border-[#117F21] hover:bg-[#117F21] hover:text-white";
+  const btn = "group relative flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-600 transition hover:-translate-y-0.5 hover:border-[#14892A] hover:bg-[#14892A] hover:text-white";
   return (
     <div className={cn("flex items-center gap-2", vertical && "flex-col")}>
       <span className={cn("text-[11px] font-bold uppercase tracking-[0.16em] text-gray-400", vertical ? "mb-1" : "mr-1")}>Share</span>
@@ -97,7 +97,7 @@ function Facts({ items }: { items: { value: string; label: string }[] }) {
     <div className={cn("my-10 grid grid-cols-1 gap-3 sm:grid-cols-2", items.length === 3 && "md:grid-cols-3")}>
       {items.map((f, i) => (
         <motion.div key={f.label} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.6, delay: i * 0.08, ease }}>
-          <Spotlight color="rgba(244,210,122,0.22)" className="relative h-full overflow-hidden rounded-2xl bg-gradient-to-br from-[#0A4A13] via-[#0A4A13] to-[#117F21] p-5 text-white">
+          <Spotlight color="rgba(244,210,122,0.22)" className="relative h-full overflow-hidden rounded-2xl bg-gradient-to-br from-[#105D1D] via-[#105D1D] to-[#14892A] p-5 text-white">
             <span aria-hidden="true" className="absolute -right-6 -top-6 h-20 w-20 rounded-full border-[10px] border-white/[0.06]" />
             <CountUp value={f.value} className="block break-words font-display text-[1.6rem] font-bold leading-none text-[#F4D27A] sm:text-[1.75rem]" />
             <span className="mt-3 block text-sm leading-snug text-white/75">{f.label}</span>
@@ -118,8 +118,8 @@ function BlockView({ b, first }: { b: Block; first: boolean }) {
       );
     case "h2":
       return (
-        <h2 id={b.id} className="group mt-12 scroll-mt-48 text-2xl font-bold text-[#0A2E10] sm:text-[1.75rem]">
-          <span aria-hidden="true" className="mb-3 block h-1 w-12 rounded-full bg-gradient-to-r from-[#117F21] to-[#CB9615] transition-all duration-500 group-hover:w-20" />
+        <h2 id={b.id} className="group mt-12 scroll-mt-48 text-2xl font-bold text-[#164D20] sm:text-[1.75rem]">
+          <span aria-hidden="true" className="mb-3 block h-1 w-12 rounded-full bg-gradient-to-r from-[#14892A] to-[#CB9615] transition-all duration-500 group-hover:w-20" />
           {b.text}
         </h2>
       );
@@ -127,8 +127,8 @@ function BlockView({ b, first }: { b: Block; first: boolean }) {
       return (
         <motion.figure {...reveal} className="relative my-12 overflow-hidden rounded-3xl bg-[#FBF7EC] px-7 py-9 sm:px-10">
           <Quote aria-hidden="true" className="absolute -left-2 -top-3 h-24 w-24 rotate-180 text-[#CB9615]/20" />
-          <span aria-hidden="true" className="absolute inset-y-6 left-0 w-1 rounded-r-full bg-gradient-to-b from-[#CB9615] to-[#117F21]" />
-          <blockquote className="relative font-serif text-[1.45em] italic leading-snug text-[#0A2E10]">{b.text}</blockquote>
+          <span aria-hidden="true" className="absolute inset-y-6 left-0 w-1 rounded-r-full bg-gradient-to-b from-[#CB9615] to-[#14892A]" />
+          <blockquote className="relative font-serif text-[1.45em] italic leading-snug text-[#164D20]">{b.text}</blockquote>
           {b.by && <figcaption className="relative mt-4 text-sm font-semibold text-[#9A6F06]">{b.by}</figcaption>}
         </motion.figure>
       );
@@ -149,14 +149,14 @@ function BlockView({ b, first }: { b: Block; first: boolean }) {
       return <Facts items={b.items} />;
     case "callout":
       return (
-        <motion.aside {...reveal} aria-label={b.title} className="relative my-12 overflow-hidden rounded-3xl border border-[#117F21]/20 bg-gradient-to-br from-[#F2FAF2] to-white p-7 sm:p-8">
-          <span aria-hidden="true" className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-[#117F21]/10 blur-2xl" />
+        <motion.aside {...reveal} aria-label={b.title} className="relative my-12 overflow-hidden rounded-3xl border border-[#14892A]/20 bg-gradient-to-br from-[#F2FAF2] to-white p-7 sm:p-8">
+          <span aria-hidden="true" className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-[#14892A]/10 blur-2xl" />
           <p className="relative text-xs font-bold uppercase tracking-[0.18em] text-[#117F21]">{b.title}</p>
-          <p className="relative mt-2 text-lg leading-relaxed text-[#0A2E10]">{b.text}</p>
+          <p className="relative mt-2 text-lg leading-relaxed text-[#164D20]">{b.text}</p>
           <ul className="relative mt-5 flex flex-wrap gap-3">
             {b.links.map((l, i) => (
               <li key={l.to}>
-                <Link to={l.to} className={cn("group inline-flex min-h-11 items-center gap-2 rounded-xl px-4 font-semibold transition", i === 0 ? "bg-[#117F21] text-white hover:bg-[#0A4A13]" : "border border-[#117F21]/30 bg-white text-[#117F21] hover:border-[#117F21]", focusRing)}>
+                <Link to={l.to} className={cn("group inline-flex min-h-11 items-center gap-2 rounded-xl px-4 font-semibold transition", i === 0 ? "bg-[#14892A] text-white hover:bg-[#105D1D]" : "border border-[#14892A]/30 bg-white text-[#117F21] hover:border-[#14892A]", focusRing)}>
                   {l.label}
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
                 </Link>
@@ -204,12 +204,12 @@ function Contents({ items, progress }: { items: { id: string; text: string }[]; 
           <circle cx="28" cy="28" r={r} fill="none" stroke="#E8F5E9" strokeWidth="5" />
           <circle cx="28" cy="28" r={r} fill="none" stroke="url(#ring)" strokeWidth="5" strokeLinecap="round" strokeDasharray={c} strokeDashoffset={c * (1 - progress)} className="transition-[stroke-dashoffset] duration-200" />
           <defs>
-            <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#117F21" /><stop offset="1" stopColor="#CB9615" /></linearGradient>
+            <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#14892A" /><stop offset="1" stopColor="#CB9615" /></linearGradient>
           </defs>
         </svg>
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.16em] text-gray-400">In this story</p>
-          <p className="text-sm font-semibold text-[#0A2E10]">{Math.round(progress * 100)}% read</p>
+          <p className="text-sm font-semibold text-[#164D20]">{Math.round(progress * 100)}% read</p>
         </div>
       </div>
       {items.length > 0 && (
@@ -220,7 +220,7 @@ function Contents({ items, progress }: { items: { id: string; text: string }[]; 
                 href={`#${i.id}`}
                 onClick={(e) => { e.preventDefault(); document.getElementById(i.id)?.scrollIntoView({ behavior: "smooth", block: "start" }); }}
                 aria-current={active === i.id ? "location" : undefined}
-                className={cn("relative -ml-0.5 block border-l-2 py-1.5 pl-4 text-sm transition", active === i.id ? "border-[#117F21] font-semibold text-[#117F21]" : "border-transparent text-gray-500 hover:text-gray-800")}
+                className={cn("relative -ml-0.5 block border-l-2 py-1.5 pl-4 text-sm transition", active === i.id ? "border-[#14892A] font-semibold text-[#117F21]" : "border-transparent text-gray-500 hover:text-gray-800")}
               >
                 {i.text}
               </a>
@@ -239,17 +239,17 @@ export function StoryCard({ a, i = 0 }: { a: A; i?: number }) {
   return (
     <motion.li initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.6, delay: i * 0.08, ease }}>
       <Tilt className="h-full">
-        <Link to={newsPath(a)} className={cn("group flex h-full flex-col overflow-hidden rounded-3xl border border-gray-200 bg-white transition hover:shadow-[0_30px_60px_-30px_rgba(10,74,19,0.45)]", focusRing)}>
+        <Link to={newsPath(a)} className={cn("group flex h-full flex-col overflow-hidden rounded-3xl border border-gray-200 bg-white transition hover:shadow-[0_30px_60px_-30px_rgba(16,93,29,0.45)]", focusRing)}>
           <span className="relative block aspect-[16/10] overflow-hidden bg-gray-100">
             <img src={a.image} alt="" loading="lazy" className="h-full w-full object-cover transition duration-700 group-hover:scale-110" />
             <span aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-            <span className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-[#0A4A13]">
+            <span className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-[#105D1D]">
               <Icon className="h-3.5 w-3.5" aria-hidden="true" /> {a.category}
             </span>
           </span>
           <span className="flex flex-1 flex-col p-5">
             <span className="text-xs text-gray-500">{short(a.date)} · {a.readMins} min read</span>
-            <span className="mt-2 block text-lg font-bold leading-snug text-[#0A2E10] group-hover:text-[#117F21]">{a.title}</span>
+            <span className="mt-2 block text-lg font-bold leading-snug text-[#164D20] group-hover:text-[#117F21]">{a.title}</span>
             <span className="mt-2 line-clamp-2 text-sm text-gray-600">{a.excerpt}</span>
             <span className="mt-auto inline-flex items-center gap-1.5 pt-4 text-sm font-semibold text-[#117F21]">
               Read story <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
@@ -323,7 +323,7 @@ function Story({ a }: { a: A }) {
   const older = idx < news.length - 1 ? news[idx + 1] : null;
   const more = news.filter((n) => n.slug !== a.slug).sort((x, y) => Number(y.category === a.category) - Number(x.category === a.category)).slice(0, 3);
   const words = a.title.split(" ");
-  const tool = cn("inline-flex min-h-11 items-center gap-2 rounded-xl border border-gray-200 bg-white px-3.5 text-sm font-semibold text-gray-700 transition hover:border-[#117F21] hover:text-[#117F21]", focusRing);
+  const tool = cn("inline-flex min-h-11 items-center gap-2 rounded-xl border border-gray-200 bg-white px-3.5 text-sm font-semibold text-gray-700 transition hover:border-[#14892A] hover:text-[#117F21]", focusRing);
 
   return (
     <article aria-labelledby="story-title">
@@ -333,7 +333,7 @@ function Story({ a }: { a: A }) {
           <motion.div initial={{ y: -64, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -64, opacity: 0 }} transition={{ duration: 0.35, ease }} className="fixed inset-x-0 top-[92px] z-30 border-b border-gray-200 bg-white/90 backdrop-blur-xl print:hidden">
             <div className="mx-auto flex h-14 max-w-7xl items-center gap-4 px-4">
               <span className="hidden h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#E8F5E9] text-[#117F21] sm:flex"><Icon className="h-4 w-4" aria-hidden="true" /></span>
-              <p className="min-w-0 flex-1 truncate text-sm font-semibold text-[#0A2E10]">{a.title}</p>
+              <p className="min-w-0 flex-1 truncate text-sm font-semibold text-[#164D20]">{a.title}</p>
               <button type="button" onClick={listen} disabled={!canSpeak} className="hidden min-h-10 items-center gap-1.5 rounded-lg px-3 text-sm font-semibold text-[#117F21] hover:bg-[#E8F5E9] sm:inline-flex" aria-pressed={speaking}>
                 {speaking ? <Pause className="h-4 w-4" aria-hidden="true" /> : <Volume2 className="h-4 w-4" aria-hidden="true" />}{speaking ? "Stop" : "Listen"}
               </button>
@@ -341,16 +341,16 @@ function Story({ a }: { a: A }) {
                 <ArrowLeft className="h-4 w-4" aria-hidden="true" /> <span className="hidden sm:inline">Newsroom</span>
               </Link>
             </div>
-            <motion.span aria-hidden="true" style={{ scaleX: bar }} className="absolute inset-x-0 bottom-0 h-[3px] origin-left bg-gradient-to-r from-[#117F21] via-[#2E913D] to-[#CB9615]" />
+            <motion.span aria-hidden="true" style={{ scaleX: bar }} className="absolute inset-x-0 bottom-0 h-[3px] origin-left bg-gradient-to-r from-[#14892A] via-[#36A045] to-[#CB9615]" />
           </motion.div>
         )}
       </AnimatePresence>
 
       {/* Hero */}
-      <header ref={heroRef} className="relative isolate flex min-h-[560px] items-end overflow-hidden bg-[#0A4A13] text-white lg:min-h-[640px]">
+      <header ref={heroRef} className="relative isolate flex min-h-[560px] items-end overflow-hidden bg-[#105D1D] text-white lg:min-h-[640px]">
         <motion.img src={a.image} alt={a.imageAlt} style={{ y: imgY, scale: imgScale }} className="absolute inset-0 -z-20 h-full w-full object-cover" />
-        <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-t from-[#04240A] via-[#04240A]/80 to-[#04240A]/30" />
-        <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-r from-[#04240A]/80 via-transparent to-transparent" />
+        <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-t from-[#11421A] via-[#11421A]/80 to-[#11421A]/30" />
+        <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-r from-[#11421A]/80 via-transparent to-transparent" />
         <motion.div style={{ opacity: fade }} className="mx-auto w-full max-w-7xl px-4 pb-14 pt-10 sm:pb-20">
           <nav aria-label="Breadcrumb" className="mb-8">
             <ol className="flex flex-wrap items-center gap-1.5 text-sm text-white/65">
@@ -396,12 +396,12 @@ function Story({ a }: { a: A }) {
                   <img src="/pencom-logo.png" alt="" className="h-9 w-9 object-contain" />
                 </span>
                 <div>
-                  <p className="font-semibold text-[#0A2E10]">{a.author}</p>
+                  <p className="font-semibold text-[#164D20]">{a.author}</p>
                   <p className="text-sm text-gray-500">National Pension Commission</p>
                 </div>
               </div>
               <div className="flex flex-wrap items-center gap-2 print:hidden">
-                <button type="button" onClick={listen} disabled={!canSpeak} aria-pressed={speaking} className={cn(tool, speaking && "border-[#117F21] bg-[#117F21] text-white hover:text-white")}>
+                <button type="button" onClick={listen} disabled={!canSpeak} aria-pressed={speaking} className={cn(tool, speaking && "border-[#14892A] bg-[#14892A] text-white hover:text-white")}>
                   {speaking ? (
                     <span className="flex h-4 items-end gap-0.5" aria-hidden="true">
                       {[0, 1, 2].map((i) => <motion.span key={i} className="w-1 rounded-full bg-current" animate={{ height: ["30%", "100%", "30%"] }} transition={{ duration: 0.8, repeat: Infinity, delay: i * 0.15 }} />)}
@@ -426,7 +426,7 @@ function Story({ a }: { a: A }) {
 
             <div className="mx-auto mt-12 max-w-[44rem] space-y-6">
               {a.attachment && (
-                <motion.a {...reveal} href={a.attachment.url} target="_blank" rel="noopener noreferrer" className={cn("group relative flex items-center gap-5 overflow-hidden rounded-3xl bg-[#0A4A13] p-6 text-white", focusRing)}>
+                <motion.a {...reveal} href={a.attachment.url} target="_blank" rel="noopener noreferrer" className={cn("group relative flex items-center gap-5 overflow-hidden rounded-3xl bg-[#105D1D] p-6 text-white", focusRing)}>
                   <span aria-hidden="true" className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition duration-1000 group-hover:translate-x-full" />
                   <span className="relative flex h-16 w-14 shrink-0 flex-col items-center justify-center rounded-lg bg-white text-[#B52026] shadow-lg transition group-hover:-rotate-6">
                     <FileText className="h-6 w-6" aria-hidden="true" /><span className="text-[10px] font-black">PDF</span>
@@ -466,7 +466,7 @@ function Story({ a }: { a: A }) {
                 <AnimatePresence mode="wait" initial={false}>
                   {useful === null ? (
                     <motion.div key="ask" exit={{ opacity: 0, y: -8 }} className="flex w-full flex-col justify-between gap-4 sm:flex-row sm:items-center">
-                      <p className="font-semibold text-[#0A2E10]">Was this story useful?</p>
+                      <p className="font-semibold text-[#164D20]">Was this story useful?</p>
                       <div className="flex gap-2">
                         <button type="button" onClick={() => setUseful(true)} className={tool}><ThumbsUp className="h-4 w-4" aria-hidden="true" /> Yes</button>
                         <button type="button" onClick={() => setUseful(false)} className={tool}><ThumbsDown className="h-4 w-4" aria-hidden="true" /> No</button>
@@ -486,7 +486,7 @@ function Story({ a }: { a: A }) {
           <aside className="hidden lg:block print:hidden">
             <div className="sticky top-[180px] space-y-5">
               <Contents items={toc} progress={pct} />
-              <Spotlight color="rgba(244,210,122,0.2)" className="rounded-3xl bg-gradient-to-br from-[#0A4A13] to-[#117F21] p-6 text-white">
+              <Spotlight color="rgba(244,210,122,0.2)" className="rounded-3xl bg-gradient-to-br from-[#105D1D] to-[#14892A] p-6 text-white">
                 <p className="font-bold">Media enquiries</p>
                 <p className="mt-1 text-sm text-white/75">Corporate Communications Department</p>
                 <a href="mailto:info@pencom.gov.ng" className="mt-3 block text-sm font-semibold text-[#F4D27A] underline-offset-2 hover:underline">info@pencom.gov.ng</a>
@@ -508,12 +508,12 @@ function Story({ a }: { a: A }) {
           {[{ s: older, label: "Previous story", dir: -1 }, { s: newer, label: "Next story", dir: 1 }].map(({ s, label, dir }) =>
             s ? (
               <Link key={label} to={newsPath(s)} className={cn("group flex items-center gap-4 px-4 py-8 transition hover:bg-[#F4FAF3] sm:px-8", dir === 1 && "sm:flex-row-reverse sm:text-right sm:border-l sm:border-gray-200", focusRing)}>
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-gray-200 text-[#117F21] transition group-hover:border-[#117F21] group-hover:bg-[#117F21] group-hover:text-white">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-gray-200 text-[#117F21] transition group-hover:border-[#14892A] group-hover:bg-[#14892A] group-hover:text-white">
                   {dir === -1 ? <ArrowLeft className="h-5 w-5" aria-hidden="true" /> : <ArrowRight className="h-5 w-5" aria-hidden="true" />}
                 </span>
                 <span className="min-w-0">
                   <span className="block text-xs font-bold uppercase tracking-[0.16em] text-gray-400">{label}</span>
-                  <span className="mt-1 block font-semibold leading-snug text-[#0A2E10] group-hover:text-[#117F21]">{s.title}</span>
+                  <span className="mt-1 block font-semibold leading-snug text-[#164D20] group-hover:text-[#117F21]">{s.title}</span>
                 </span>
               </Link>
             ) : <span key={label} className="hidden sm:block" />,
@@ -525,8 +525,8 @@ function Story({ a }: { a: A }) {
       <section aria-labelledby="more-title" className="bg-[#F4F7F2] py-20 print:hidden">
         <div className="mx-auto max-w-7xl px-4">
           <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
-            <h2 id="more-title" className="text-3xl font-bold text-[#0A2E10] sm:text-4xl">More from the <span className="bg-gradient-to-r from-[#117F21] to-[#CB9615] bg-clip-text text-transparent">newsroom</span></h2>
-            <Link to="/news" className={cn("group inline-flex min-h-11 w-fit items-center gap-2 rounded-xl border border-[#117F21]/25 bg-white px-4 text-sm font-semibold text-[#117F21] hover:border-[#117F21]", focusRing)}>
+            <h2 id="more-title" className="text-3xl font-bold text-[#164D20] sm:text-4xl">More from the <span className="bg-gradient-to-r from-[#14892A] to-[#CB9615] bg-clip-text text-transparent">newsroom</span></h2>
+            <Link to="/news" className={cn("group inline-flex min-h-11 w-fit items-center gap-2 rounded-xl border border-[#14892A]/25 bg-white px-4 text-sm font-semibold text-[#117F21] hover:border-[#14892A]", focusRing)}>
               All news <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
             </Link>
           </div>
@@ -541,7 +541,7 @@ function Story({ a }: { a: A }) {
 
 function Missing() {
   return (
-    <section className="relative isolate overflow-hidden bg-[#0A4A13] py-28 text-center text-white">
+    <section className="relative isolate overflow-hidden bg-[#105D1D] py-28 text-center text-white">
       <div className="mx-auto max-w-xl px-4">
         <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#F4D27A]">Newsroom</p>
         <h1 className="mt-4 text-4xl font-bold">We can’t find that story</h1>

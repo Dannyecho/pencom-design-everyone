@@ -30,9 +30,9 @@ function Slider({ label, value, min, max, step, onChange, format, hint }: { labe
   const pct = ((value - min) / (max - min)) * 100;
   return (
     <div>
-      <label htmlFor={id} className="flex items-baseline justify-between gap-3 text-sm font-semibold text-[#0A2E10]">
+      <label htmlFor={id} className="flex items-baseline justify-between gap-3 text-sm font-semibold text-[#164D20]">
         {label}
-        <span className="rounded-lg bg-[#E8F5E9] px-2 py-0.5 font-mono text-sm text-[#0A4A13]">{format(value)}</span>
+        <span className="rounded-lg bg-[#E8F5E9] px-2 py-0.5 font-mono text-sm text-[#105D1D]">{format(value)}</span>
       </label>
       <input
         id={id}
@@ -43,8 +43,8 @@ function Slider({ label, value, min, max, step, onChange, format, hint }: { labe
         value={value}
         onChange={(e) => onChange(Number(e.target.value))}
         aria-valuetext={format(value)}
-        className="mt-3 h-2 w-full cursor-pointer appearance-none rounded-full bg-gray-200 accent-[#117F21] focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-[#FFD84D]"
-        style={{ background: `linear-gradient(to right, #117F21 ${pct}%, #E5E7EB ${pct}%)` }}
+        className="mt-3 h-2 w-full cursor-pointer appearance-none rounded-full bg-gray-200 accent-[#14892A] focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-[#FFD84D]"
+        style={{ background: `linear-gradient(to right, #14892A ${pct}%, #E5E7EB ${pct}%)` }}
       />
       {hint && <p className="mt-1 text-xs text-gray-500">{hint}</p>}
     </div>
@@ -106,7 +106,7 @@ export default function Calculator() {
   const parts = [
     { k: "Starting balance", v: r.start, c: "bg-gray-400" },
     { k: "Your 8%", v: r.employee, c: "bg-[#2E913D]" },
-    { k: "Employer’s 10%", v: r.employer, c: "bg-[#117F21]" },
+    { k: "Employer’s 10%", v: r.employer, c: "bg-[#14892A]" },
     { k: "Voluntary", v: r.vol, c: "bg-[#7B4BB7]" },
     { k: "Investment growth", v: Math.max(0, r.growthAmt), c: "bg-[#CB9615]" },
   ];
@@ -130,8 +130,8 @@ export default function Calculator() {
             </div>
           </div>
 
-          <div className="relative isolate overflow-hidden rounded-[2rem] bg-[#0A4A13] p-6 text-white shadow-[0_40px_80px_-40px_rgba(10,46,16,0.7)] sm:p-8 lg:col-span-7">
-            <div aria-hidden="true" className="absolute -right-24 -top-24 -z-10 h-72 w-72 rounded-full bg-[#117F21] blur-3xl" />
+          <div className="relative isolate overflow-hidden rounded-[2rem] bg-[#105D1D] p-6 text-white shadow-[0_40px_80px_-40px_rgba(22,77,32,0.7)] sm:p-8 lg:col-span-7">
+            <div aria-hidden="true" className="absolute -right-24 -top-24 -z-10 h-72 w-72 rounded-full bg-[#14892A] blur-3xl" />
             <div aria-hidden="true" className="absolute -bottom-32 left-1/4 -z-10 h-72 w-72 rounded-full bg-[#CB9615]/30 blur-3xl" />
             <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-[#F4D27A]"><CalcIcon className="h-4 w-4" aria-hidden="true" /> Estimated balance at {retire}</p>
             <p className="mt-2" aria-live="polite">

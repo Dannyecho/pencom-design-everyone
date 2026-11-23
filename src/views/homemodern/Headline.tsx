@@ -46,11 +46,11 @@ export default function Headline({
   return (
     <header className={cn("grid grid-cols-1 gap-6", !stacked && "items-end lg:grid-cols-12 lg:gap-10")}>
       <div className={stacked ? undefined : "lg:col-span-7"}>
-        <p className={cn("flex items-center gap-3 text-xs font-bold uppercase tracking-[0.22em]", dark ? "text-white/80" : "text-[#0A4A13]")}>
+        <p className={cn("flex items-center gap-3 text-xs font-bold uppercase tracking-[0.22em]", dark ? "text-white/80" : "text-[#105D1D]")}>
           <span className={cn("font-mono text-sm tracking-normal", dark ? "text-[#F4D27A]" : "text-[#B07E0C]")}>{n}</span>
           <motion.span
             aria-hidden="true"
-            className={cn("h-[2px] w-12 origin-left rounded-full", dark ? "bg-[#F4D27A]/70" : "bg-[#117F21]/50")}
+            className={cn("h-[2px] w-12 origin-left rounded-full", dark ? "bg-[#F4D27A]/70" : "bg-[#14892A]/50")}
             initial={{ scaleX: reduce ? 1 : 0 }}
             whileInView={{ scaleX: 1 }}
             viewport={view}
@@ -61,7 +61,7 @@ export default function Headline({
         <h2
           id={id}
           data-i18n-done={lang !== "en" && T !== title ? "" : undefined}
-          className={cn(cn("mt-4 text-[2rem] font-bold leading-[1.1] tracking-tight sm:text-[2.6rem]", !stacked && "lg:text-5xl"), dark ? "text-white" : "text-[#0E2414]")}
+          className={cn(cn("mt-4 text-[2rem] font-bold leading-[1.1] tracking-tight sm:text-[2.6rem]", !stacked && "lg:text-5xl"), dark ? "text-white" : "text-[#1C4226]")}
         >
           {before}
           {hl && (
@@ -84,7 +84,7 @@ export default function Headline({
         </h2>
       </div>
       {(intro || action) && (
-        <div className={cn(!stacked && "lg:col-span-5 lg:border-l lg:pl-8", dark ? "lg:border-white/20" : "lg:border-[#0E2414]/15")}>
+        <div className={cn(!stacked && "lg:col-span-5 lg:border-l lg:pl-8", dark ? "lg:border-white/20" : "lg:border-[#1C4226]/15")}>
           {intro && <p className={cn("text-base leading-relaxed sm:text-lg", dark ? "text-white/75" : "text-gray-600")}>{intro}</p>}
           {action && <div className="mt-4">{action}</div>}
         </div>

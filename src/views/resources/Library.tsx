@@ -36,7 +36,7 @@ const booklets = publications
 
 function Cover({ p, label, big, tone }: { p: Publication; label: string; big: string; tone: "green" | "gold" | "ink" }) {
   const reduce = useReducedMotion();
-  const bg = { green: "from-[#0A4A13] via-[#117F21] to-[#2E913D]", gold: "from-[#9A6F06] via-[#CB9615] to-[#F4D27A]", ink: "from-[#0F1A10] via-[#1F2E20] to-[#0A4A13]" }[tone];
+  const bg = { green: "from-[#105D1D] via-[#14892A] to-[#36A045]", gold: "from-[#9A6F06] via-[#CB9615] to-[#F4D27A]", ink: "from-[#1D3323] via-[#1F2E20] to-[#105D1D]" }[tone];
   return (
     <a href={p.pdf} target="_blank" rel="noopener noreferrer" className="group block [perspective:1200px] focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-[#FFD84D]">
       <motion.span
@@ -73,7 +73,7 @@ function YearChips({ years, year, setYear, id }: { years: number[]; year: number
     <div className="flex gap-1.5 overflow-x-auto pb-2 [scrollbar-width:thin]" role="group" aria-label="Year">
       {years.map((y) => (
         <button key={y} type="button" aria-pressed={y === year} onClick={() => setYear(y)} className={cn("relative isolate min-h-10 shrink-0 rounded-xl px-3.5 font-mono text-sm font-semibold transition-colors focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#FFD84D]", y === year ? "text-[#F4D27A]" : "bg-white text-gray-600 ring-1 ring-gray-200 hover:text-[#117F21]")}>
-          {y === year && <motion.span layoutId={`year-${id}`} className="absolute inset-0 -z-10 rounded-xl bg-[#0A4A13]" transition={{ type: "spring", stiffness: 400, damping: 32 }} />}
+          {y === year && <motion.span layoutId={`year-${id}`} className="absolute inset-0 -z-10 rounded-xl bg-[#105D1D]" transition={{ type: "spring", stiffness: 400, damping: 32 }} />}
           {y}
         </button>
       ))}
@@ -84,9 +84,9 @@ function YearChips({ years, year, setYear, id }: { years: number[]; year: number
 function DocRow({ p }: { p: Publication }) {
   return (
     <li>
-      <a href={p.pdf} target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 rounded-2xl border border-gray-200 bg-white px-5 py-4 transition hover:-translate-y-0.5 hover:border-[#117F21]/40 hover:shadow-md focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#FFD84D]">
+      <a href={p.pdf} target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 rounded-2xl border border-gray-200 bg-white px-5 py-4 transition hover:-translate-y-0.5 hover:border-[#14892A]/40 hover:shadow-md focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#FFD84D]">
         <FileText className="h-5 w-5 shrink-0 text-[#117F21]" aria-hidden="true" />
-        <span className="flex-1 font-semibold text-[#0A2E10] group-hover:text-[#117F21]">{p.title}</span>
+        <span className="flex-1 font-semibold text-[#164D20] group-hover:text-[#117F21]">{p.title}</span>
         <span className="hidden font-mono text-xs text-gray-400 sm:block">{fmt(p.date)}</span>
         <Download className="h-4 w-4 text-gray-400 group-hover:text-[#117F21]" aria-hidden="true" />
         <span className="sr-only">(PDF, opens in a new tab)</span>
@@ -112,7 +112,7 @@ export function Publications({ highlight }: { highlight: string | null }) {
     <section id="publications" aria-labelledby="pub-title" className="relative scroll-mt-[160px] overflow-hidden bg-gradient-to-b from-white to-[#F4F7F2] py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4">
         <SectionHeading id="pub-title" eyebrow="Publications" title="Reports on the pension industry" highlight="pension industry" intro={`${publications.length} reports and publications, from monthly figures to annual reports. Every one is the official PDF.`} />
-        <Link to="/resources/reports/q1-2026" className="group mt-8 flex flex-col justify-between gap-3 rounded-3xl bg-gradient-to-r from-[#0A4A13] to-[#117F21] p-6 text-white transition hover:shadow-xl focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#FFD84D] sm:flex-row sm:items-center">
+        <Link to="/resources/reports/q1-2026" className="group mt-8 flex flex-col justify-between gap-3 rounded-3xl bg-gradient-to-r from-[#105D1D] to-[#14892A] p-6 text-white transition hover:shadow-xl focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#FFD84D] sm:flex-row sm:items-center">
           <span><span className="block text-xs font-bold uppercase tracking-[0.16em] text-[#F4D27A]">New · Read online</span><span className="mt-1 block text-lg font-bold">Q1 2026 Quarterly Industry Report</span><span className="block text-sm text-white/70">The dashboard, the Director-General’s read and the priorities for Q2, as a web page.</span></span>
           <span className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-[#CB9615] px-4 py-2.5 font-semibold text-[#1A1206]">Read the report <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span></span>
         </Link>
@@ -129,9 +129,9 @@ export function Publications({ highlight }: { highlight: string | null }) {
           <LayoutGroup id="pub-tabs">
             <div role="tablist" aria-label="Publication types" className="flex gap-1 overflow-x-auto border-b border-gray-200 pb-px">
               {tabs.map((t) => (
-                <button key={t} role="tab" type="button" aria-selected={tab === t} onClick={() => setTab(t)} className={cn("relative min-h-12 shrink-0 px-4 text-sm font-semibold transition-colors focus-visible:outline focus-visible:outline-[3px] focus-visible:-outline-offset-[3px] focus-visible:outline-[#FFD84D]", tab === t ? "text-[#0A4A13]" : "text-gray-500 hover:text-gray-800")}>
+                <button key={t} role="tab" type="button" aria-selected={tab === t} onClick={() => setTab(t)} className={cn("relative min-h-12 shrink-0 px-4 text-sm font-semibold transition-colors focus-visible:outline focus-visible:outline-[3px] focus-visible:-outline-offset-[3px] focus-visible:outline-[#FFD84D]", tab === t ? "text-[#105D1D]" : "text-gray-500 hover:text-gray-800")}>
                   {t}
-                  {tab === t && <motion.span layoutId="pub-underline" className="absolute inset-x-2 -bottom-px h-[3px] rounded-full bg-gradient-to-r from-[#117F21] to-[#CB9615]" />}
+                  {tab === t && <motion.span layoutId="pub-underline" className="absolute inset-x-2 -bottom-px h-[3px] rounded-full bg-gradient-to-r from-[#14892A] to-[#CB9615]" />}
                 </button>
               ))}
             </div>
@@ -149,7 +149,7 @@ export function Publications({ highlight }: { highlight: string | null }) {
                         return (
                           <motion.li key={`${qYear}-${n}`} initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.3, delay: n * 0.05, ease }}>
                             {r ? (
-                              <a href={r.pdf} target="_blank" rel="noopener noreferrer" className="group relative flex aspect-[4/3] flex-col justify-between overflow-hidden rounded-2xl bg-gradient-to-br from-[#0A4A13] to-[#117F21] p-5 text-white transition hover:-translate-y-1 hover:shadow-[0_24px_50px_-20px_rgba(4,36,10,0.8)] focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#FFD84D]">
+                              <a href={r.pdf} target="_blank" rel="noopener noreferrer" className="group relative flex aspect-[4/3] flex-col justify-between overflow-hidden rounded-2xl bg-gradient-to-br from-[#105D1D] to-[#14892A] p-5 text-white transition hover:-translate-y-1 hover:shadow-[0_24px_50px_-20px_rgba(17,66,26,0.8)] focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#FFD84D]">
                                 <span className="relative text-5xl font-black tracking-tight">Q{n}</span>
                                 <span className="relative flex items-center justify-between text-sm">
                                   <span>{qYear} report</span>
@@ -179,7 +179,7 @@ export function Publications({ highlight }: { highlight: string | null }) {
                         return (
                           <motion.li key={`${mYear}-${m}`} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.25, delay: i * 0.025, ease }}>
                             {r ? (
-                              <a href={r.pdf} target="_blank" rel="noopener noreferrer" className="group flex aspect-square flex-col items-center justify-center rounded-2xl border border-[#117F21]/20 bg-[#F4FAF3] text-[#0A2E10] transition hover:-translate-y-1 hover:border-[#117F21] hover:bg-[#117F21] hover:text-white focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#FFD84D]">
+                              <a href={r.pdf} target="_blank" rel="noopener noreferrer" className="group flex aspect-square flex-col items-center justify-center rounded-2xl border border-[#14892A]/20 bg-[#F4FAF3] text-[#164D20] transition hover:-translate-y-1 hover:border-[#14892A] hover:bg-[#14892A] hover:text-white focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#FFD84D]">
                                 <span className="text-xl font-black">{m}</span>
                                 <FileDown className="mt-1 h-4 w-4 opacity-60 transition group-hover:opacity-100" aria-hidden="true" />
                                 <span className="sr-only">{r.title}, PDF, opens in a new tab</span>
@@ -200,7 +200,7 @@ export function Publications({ highlight }: { highlight: string | null }) {
                   <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
                     {annual.map((a, i) => (
                       <motion.li key={a.pdf} initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3, delay: i * 0.03, ease }}>
-                        <a href={a.pdf} target="_blank" rel="noopener noreferrer" className="group relative flex aspect-[3/4] flex-col justify-end overflow-hidden rounded-r-xl rounded-l-sm bg-gradient-to-br from-[#0F1A10] to-[#0A4A13] p-4 text-white shadow-md transition hover:-translate-y-1 hover:rotate-[-1deg] hover:shadow-xl focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#FFD84D]">
+                        <a href={a.pdf} target="_blank" rel="noopener noreferrer" className="group relative flex aspect-[3/4] flex-col justify-end overflow-hidden rounded-r-xl rounded-l-sm bg-gradient-to-br from-[#1D3323] to-[#105D1D] p-4 text-white shadow-md transition hover:-translate-y-1 hover:rotate-[-1deg] hover:shadow-xl focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#FFD84D]">
                           <span aria-hidden="true" className="absolute inset-y-0 left-0 w-2 bg-gradient-to-r from-[#CB9615] to-transparent" />
                           <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/60">Annual report</span>
                           <span className="text-3xl font-black text-[#F4D27A]">{a.year}</span>
@@ -237,9 +237,9 @@ export function Downloads() {
             <ul className="mt-4 space-y-2">
               {forms.map((f, i) => (
                 <motion.li key={f.pdf} initial={{ opacity: 0, x: -16 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.05, ease }}>
-                  <a href={f.pdf} target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 rounded-2xl border border-gray-200 bg-white px-5 py-4 transition hover:border-[#117F21]/40 hover:shadow-md focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#FFD84D]">
+                  <a href={f.pdf} target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 rounded-2xl border border-gray-200 bg-white px-5 py-4 transition hover:border-[#14892A]/40 hover:shadow-md focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#FFD84D]">
                     <span className={cn("flex h-11 w-11 shrink-0 items-center justify-center rounded-xl font-mono text-[11px] font-bold", f.ext === "PDF" ? "bg-[#FDE8E8] text-[#B52026]" : "bg-[#E3F2FD] text-[#0B4F8A]")}>{f.ext}</span>
-                    <span className="flex-1 font-semibold text-[#0A2E10] group-hover:text-[#117F21]">{f.title}</span>
+                    <span className="flex-1 font-semibold text-[#164D20] group-hover:text-[#117F21]">{f.title}</span>
                     <Download className="h-4 w-4 text-gray-400 transition group-hover:translate-y-0.5 group-hover:text-[#117F21]" aria-hidden="true" />
                     <span className="sr-only">({f.ext}, opens in a new tab)</span>
                   </a>
@@ -250,7 +250,7 @@ export function Downloads() {
           </div>
 
           <div className="lg:col-span-5">
-            <Spotlight color="rgba(244,210,122,0.2)" className="h-full rounded-3xl bg-gradient-to-br from-[#0A4A13] via-[#0A4A13] to-[#117F21] p-7 text-white">
+            <Spotlight color="rgba(244,210,122,0.2)" className="h-full rounded-3xl bg-gradient-to-br from-[#105D1D] via-[#105D1D] to-[#14892A] p-7 text-white">
               <Globe2 className="relative h-9 w-9 text-[#F4D27A]" aria-hidden="true" />
               <h3 className="relative mt-4 text-2xl font-bold">In your language</h3>
               <p className="relative mt-2 text-white/75">Micro Pension questions and answers in Nigerian languages.</p>
@@ -294,8 +294,8 @@ export function Learning({ openGuides }: { openGuides: () => void }) {
   const v = videos[current];
 
   return (
-    <section id="learning" aria-labelledby="learn-title" className="relative isolate scroll-mt-[160px] overflow-hidden bg-[#0A4A13] py-20 text-white sm:py-28">
-      <div aria-hidden="true" className="absolute -right-32 top-0 -z-10 h-[480px] w-[480px] rounded-full bg-[#117F21]/40 blur-[150px]" />
+    <section id="learning" aria-labelledby="learn-title" className="relative isolate scroll-mt-[160px] overflow-hidden bg-[#105D1D] py-20 text-white sm:py-28">
+      <div aria-hidden="true" className="absolute -right-32 top-0 -z-10 h-[480px] w-[480px] rounded-full bg-[#14892A]/40 blur-[150px]" />
       <div className="mx-auto max-w-7xl px-4">
         <SectionHeading id="learn-title" dark eyebrow="Learning" title="Watch, listen and learn" highlight="listen and learn" intro="Videos about the scheme, and reading aids for every guide: listen aloud, bigger text, printable checklists." />
 
@@ -310,7 +310,7 @@ export function Learning({ openGuides }: { openGuides: () => void }) {
                 <button type="button" onClick={() => setPlaying(true)} className="group relative block aspect-video w-full text-left focus-visible:outline focus-visible:outline-[3px] focus-visible:-outline-offset-[3px] focus-visible:outline-[#FFD84D]">
                   <img src={v.poster} alt="" className="absolute inset-0 h-full w-full object-cover opacity-75 transition duration-700 group-hover:scale-105" />
                   <span aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
-                  <span className="absolute left-1/2 top-1/2 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-[#0A4A13] shadow-2xl transition group-hover:scale-110">
+                  <span className="absolute left-1/2 top-1/2 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-[#105D1D] shadow-2xl transition group-hover:scale-110">
                     <Play className="ml-1 h-8 w-8 fill-current" aria-hidden="true" />
                   </span>
                   <span className="absolute inset-x-0 bottom-0 p-6">

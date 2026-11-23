@@ -54,7 +54,7 @@ export default function ConnectPage() {
 
   return (
     <MotionConfig reducedMotion="user">
-      <div className="bg-[#FBFCF9] text-[#0E2414]">
+      <div className="bg-[#FBFCF9] text-[#1C4226]">
         <Hero go={go} />
         <SectionNav sections={sections} pillId="connect-nav-pill" />
         <CaseForm topic={topic} setTopic={setTopic} onSubmitted={setLastRef} />
@@ -93,7 +93,7 @@ function Hero({ go }: { go: (id: string, topic?: TopicId) => void }) {
                 type="button"
                 onClick={() => go(a.id, a.topic)}
                 className={cn(
-                  "group flex h-full w-full flex-col items-start gap-3 rounded-2xl bg-white/85 p-4 text-left ring-1 ring-black/5 backdrop-blur transition duration-300 hover:-translate-y-0.5 hover:bg-[#0A4A13] hover:text-white hover:shadow-[0_24px_40px_-24px_rgba(10,74,19,0.8)] sm:flex-row sm:items-center",
+                  "group flex h-full w-full flex-col items-start gap-3 rounded-2xl bg-white/85 p-4 text-left ring-1 ring-black/5 backdrop-blur transition duration-300 hover:-translate-y-0.5 hover:bg-[#105D1D] hover:text-white hover:shadow-[0_24px_40px_-24px_rgba(16,93,29,0.8)] sm:flex-row sm:items-center",
                   focus,
                 )}
               >
@@ -112,7 +112,7 @@ function Hero({ go }: { go: (id: string, topic?: TopicId) => void }) {
       }
       aside={
         <FramedPanel>
-          <div className="relative overflow-hidden bg-gradient-to-br from-[#0A4A13] to-[#117F21] px-6 pb-6 pt-6 text-white sm:px-7">
+          <div className="relative overflow-hidden bg-gradient-to-br from-[#105D1D] to-[#14892A] px-6 pb-6 pt-6 text-white sm:px-7">
             <span aria-hidden="true" className="absolute -right-10 -top-12 h-40 w-40 rounded-full bg-[#F4D27A]/20 blur-2xl" />
             <p className="relative text-xs font-bold uppercase tracking-[0.18em] text-[#F4D27A]">National Pension Commission</p>
             <p className="relative mt-2 text-2xl font-bold leading-tight">Talk to us directly</p>
@@ -121,7 +121,7 @@ function Hero({ go }: { go: (id: string, topic?: TopicId) => void }) {
           <ul className="space-y-1 p-3 sm:p-4">
             <li>
               <a href={`tel:${headOffice.phone.replace(/\s/g, "")}`} className={cn("group flex items-center gap-4 rounded-2xl p-3 transition hover:bg-[#F6F8F3]", focus)}>
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#E8F5E9] text-[#117F21] transition group-hover:bg-[#117F21] group-hover:text-white">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#E8F5E9] text-[#117F21] transition group-hover:bg-[#14892A] group-hover:text-white">
                   <Phone className="h-5 w-5" aria-hidden="true" />
                 </span>
                 <span className="min-w-0">
@@ -132,7 +132,7 @@ function Hero({ go }: { go: (id: string, topic?: TopicId) => void }) {
             </li>
             <li>
               <a href={`mailto:${headOffice.email}`} className={cn("group flex items-center gap-4 rounded-2xl p-3 transition hover:bg-[#F6F8F3]", focus)}>
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#E8F5E9] text-[#117F21] transition group-hover:bg-[#117F21] group-hover:text-white">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#E8F5E9] text-[#117F21] transition group-hover:bg-[#14892A] group-hover:text-white">
                   <Mail className="h-5 w-5" aria-hidden="true" />
                 </span>
                 <span className="min-w-0">
@@ -143,7 +143,7 @@ function Hero({ go }: { go: (id: string, topic?: TopicId) => void }) {
             </li>
             <li>
               <button type="button" onClick={() => go("zonal-offices")} className={cn("group flex w-full items-center gap-4 rounded-2xl p-3 text-left transition hover:bg-[#F6F8F3]", focus)}>
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#E8F5E9] text-[#117F21] transition group-hover:bg-[#117F21] group-hover:text-white">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#E8F5E9] text-[#117F21] transition group-hover:bg-[#14892A] group-hover:text-white">
                   <MapPin className="h-5 w-5" aria-hidden="true" />
                 </span>
                 <span className="min-w-0 flex-1">
@@ -166,7 +166,7 @@ function Hero({ go }: { go: (id: string, topic?: TopicId) => void }) {
             <ul className="mt-2 flex flex-wrap gap-2">
               {social.map((s) => (
                 <li key={s.name}>
-                  <a href={s.href} target="_blank" rel="noopener noreferrer" className={cn("inline-flex min-h-9 items-center rounded-full bg-[#F6F8F3] px-3 text-xs font-semibold text-[#0A4A13] ring-1 ring-black/5 transition hover:bg-[#0A4A13] hover:text-white", focus)}>
+                  <a href={s.href} target="_blank" rel="noopener noreferrer" className={cn("inline-flex min-h-9 items-center rounded-full bg-[#F6F8F3] px-3 text-xs font-semibold text-[#105D1D] ring-1 ring-black/5 transition hover:bg-[#105D1D] hover:text-white", focus)}>
                     {s.name}
                     <span className="sr-only"> {s.handle} (opens in a new tab)</span>
                   </a>

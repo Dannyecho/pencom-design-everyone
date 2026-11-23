@@ -80,7 +80,7 @@ export default function ResourcesPage() {
 
   return (
     <MotionConfig reducedMotion="user">
-      <div className="bg-[#FBFCF9] text-[#0E2414]">
+      <div className="bg-[#FBFCF9] text-[#1C4226]">
         <Hero
           openGuide={(id) => setGuide(id)}
           openFaq={(q) => {
@@ -161,7 +161,7 @@ function Hero({
           <label htmlFor="kb-q" className="sr-only">
             Search guides, questions, terms and publications
           </label>
-          <div className="flex items-center gap-3 rounded-2xl bg-white px-4 shadow-[0_20px_40px_-28px_rgba(10,74,19,0.6)] ring-1 ring-black/10 focus-within:ring-2 focus-within:ring-[#117F21]">
+          <div className="flex items-center gap-3 rounded-2xl bg-white px-4 shadow-[0_20px_40px_-28px_rgba(16,93,29,0.6)] ring-1 ring-black/10 focus-within:ring-2 focus-within:ring-[#14892A]">
             <Search className="h-5 w-5 shrink-0 text-[#117F21]" aria-hidden="true" />
             <input
               id="kb-q"
@@ -187,7 +187,7 @@ function Hero({
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -6 }}
                 transition={{ duration: 0.2, ease }}
-                className="absolute inset-x-0 top-full z-40 mt-2 overflow-hidden rounded-2xl bg-white shadow-[0_30px_60px_-20px_rgba(10,46,16,0.45)] ring-1 ring-black/10"
+                className="absolute inset-x-0 top-full z-40 mt-2 overflow-hidden rounded-2xl bg-white shadow-[0_30px_60px_-20px_rgba(22,77,32,0.45)] ring-1 ring-black/10"
               >
                 {hits.length ? (
                   <ul id="kb-results" role="listbox" aria-label="Results">
@@ -232,14 +232,14 @@ function Hero({
       }
       aside={
         <FramedPanel className="p-4 sm:p-5">
-          <p className="px-1 text-xs font-bold uppercase tracking-[0.18em] text-[#0A4A13]">What’s here</p>
+          <p className="px-1 text-xs font-bold uppercase tracking-[0.18em] text-[#105D1D]">What’s here</p>
           <ul className="mt-3 space-y-2">
             {tiles.map((t, i) => (
               <motion.li key={t.id} initial={{ opacity: 0, x: 12 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.4, delay: 0.3 + i * 0.05, ease }}>
                 <button
                   type="button"
                   onClick={() => jump(t.id)}
-                  className={cn("group flex w-full items-center gap-4 rounded-2xl bg-[#F6F8F3] p-3 text-left ring-1 ring-black/5 transition duration-300 hover:bg-[#0A4A13] hover:text-white", focus)}
+                  className={cn("group flex w-full items-center gap-4 rounded-2xl bg-[#F6F8F3] p-3 text-left ring-1 ring-black/5 transition duration-300 hover:bg-[#105D1D] hover:text-white", focus)}
                 >
                   <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white text-[#117F21] shadow-sm transition group-hover:bg-[#F4D27A] group-hover:text-[#1A1206]">
                     <t.icon className="h-5 w-5" aria-hidden="true" />
@@ -248,7 +248,7 @@ function Hero({
                     <span className="block font-bold">{t.label}</span>
                     <span className="block text-xs text-gray-500 transition group-hover:text-white/70">{t.note}</span>
                   </span>
-                  <span className="font-mono text-2xl font-bold text-[#0A4A13] transition group-hover:text-[#F4D27A]">{t.n}</span>
+                  <span className="font-mono text-2xl font-bold text-[#105D1D] transition group-hover:text-[#F4D27A]">{t.n}</span>
                 </button>
               </motion.li>
             ))}

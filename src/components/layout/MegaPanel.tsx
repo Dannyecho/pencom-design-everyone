@@ -36,12 +36,12 @@ export default function MegaPanel({ item, pathname }: { item: Item; pathname: st
       className="absolute inset-x-4 top-full z-10 pt-2"
     >
       <div className="relative">
-        <div aria-hidden="true" className="absolute inset-0 -z-10 translate-x-2.5 translate-y-2.5 rounded-[1.75rem] bg-[#0A4A13]" />
-        <div className="grid grid-cols-[14rem_1fr] gap-4 rounded-[1.75rem] border border-[#0A4A13]/15 bg-white p-4 shadow-[0_30px_60px_-30px_rgba(10,46,16,0.55)] xl:grid-cols-[16rem_1fr]">
+        <div aria-hidden="true" className="absolute inset-0 -z-10 translate-x-2.5 translate-y-2.5 rounded-[1.75rem] bg-[#105D1D]" />
+        <div className="grid grid-cols-[14rem_1fr] gap-4 rounded-[1.75rem] border border-[#105D1D]/15 bg-white p-4 shadow-[0_30px_60px_-30px_rgba(22,77,32,0.55)] xl:grid-cols-[16rem_1fr]">
           {/* Section intro */}
           <div className="flex flex-col justify-between p-3">
             <div>
-              <p className="text-3xl font-bold leading-tight tracking-tight text-[#0E2414]">
+              <p className="text-3xl font-bold leading-tight tracking-tight text-[#1C4226]">
                 <motion.span
                   className="box-decoration-clone rounded-md bg-[linear-gradient(transparent_58%,rgba(244,210,122,0.75)_58%)] bg-no-repeat px-1"
                   initial={{ backgroundSize: reduce ? "100% 100%" : "0% 100%" }}
@@ -55,7 +55,7 @@ export default function MegaPanel({ item, pathname }: { item: Item; pathname: st
             </div>
             <Link
               to={item.href}
-              className={cn("group/o mt-6 inline-flex min-h-11 w-fit items-center gap-2 rounded-full bg-[#0A4A13] px-5 text-sm font-semibold text-white transition-colors hover:bg-[#117F21]", focus)}
+              className={cn("group/o mt-6 inline-flex min-h-11 w-fit items-center gap-2 rounded-full bg-[#105D1D] px-5 text-sm font-semibold text-white transition-colors hover:bg-[#14892A]", focus)}
             >
               Overview
               <ArrowRight className="h-4 w-4 transition-transform group-hover/o:translate-x-1" aria-hidden="true" />
@@ -72,11 +72,11 @@ export default function MegaPanel({ item, pathname }: { item: Item; pathname: st
                 transition={{ duration: 0.3, delay: reduce ? 0 : 0.05 + i * 0.05, ease }}
                 className={cn("rounded-2xl p-4", fields[i % fields.length])}
               >
-                <p className="mb-3 flex items-center gap-2.5 px-2 text-xs font-bold uppercase tracking-[0.18em] text-[#0A4A13]">
+                <p className="mb-3 flex items-center gap-2.5 px-2 text-xs font-bold uppercase tracking-[0.18em] text-[#105D1D]">
                   <span className="font-mono text-sm tracking-normal text-[#8A6309]">{String(i + 1).padStart(2, "0")}</span>
                   <motion.span
                     aria-hidden="true"
-                    className="h-[2px] w-6 origin-left rounded-full bg-[#117F21]/50"
+                    className="h-[2px] w-6 origin-left rounded-full bg-[#14892A]/50"
                     initial={{ scaleX: reduce ? 1 : 0 }}
                     animate={{ scaleX: 1 }}
                     transition={{ duration: 0.5, delay: reduce ? 0 : 0.15 + i * 0.05, ease }}
@@ -93,7 +93,7 @@ export default function MegaPanel({ item, pathname }: { item: Item; pathname: st
                           plain={link.plain}
                           aria-current={here ? "page" : undefined}
                           className={cn(
-                            "group/l flex min-h-10 items-center justify-between gap-2 rounded-lg px-2 py-1.5 text-[15px] text-[#0E2414] transition-colors hover:bg-white/70",
+                            "group/l flex min-h-10 items-center justify-between gap-2 rounded-lg px-2 py-1.5 text-[15px] text-[#1C4226] transition-colors hover:bg-white/70",
                             here && "font-semibold",
                             focus,
                           )}

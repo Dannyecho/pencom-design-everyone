@@ -107,7 +107,7 @@ export default function NewsCatalog() {
   return (
     <MotionConfig reducedMotion="user">
       <CookieConsent />
-      <div className="bg-[#FBFCF9] text-[#0E2414]">
+      <div className="bg-[#FBFCF9] text-[#1C4226]">
         <Hero lead={lead} q={q} onSearch={search} />
 
         <section id="catalogue" aria-labelledby="catalogue-title" className="scroll-mt-[160px] px-4 pb-6 pt-16 sm:pt-20">
@@ -168,12 +168,12 @@ export default function NewsCatalog() {
               {results.length > limit && (
                 <div className="mt-10 flex flex-col items-center gap-3">
                   <div className="h-1.5 w-48 overflow-hidden rounded-full bg-gray-200" aria-hidden="true">
-                    <motion.div className="h-full rounded-full bg-gradient-to-r from-[#117F21] to-[#CB9615]" animate={{ width: `${(limit / results.length) * 100}%` }} transition={{ duration: 0.5, ease }} />
+                    <motion.div className="h-full rounded-full bg-gradient-to-r from-[#14892A] to-[#CB9615]" animate={{ width: `${(limit / results.length) * 100}%` }} transition={{ duration: 0.5, ease }} />
                   </div>
                   <button
                     type="button"
                     onClick={() => setLimit((l) => l + PAGE)}
-                    className={cn("group inline-flex min-h-12 items-center gap-2 rounded-full bg-white px-6 font-semibold text-[#0A4A13] shadow-sm ring-1 ring-black/10 transition hover:bg-[#0A4A13] hover:text-white", focus)}
+                    className={cn("group inline-flex min-h-12 items-center gap-2 rounded-full bg-white px-6 font-semibold text-[#105D1D] shadow-sm ring-1 ring-black/10 transition hover:bg-[#105D1D] hover:text-white", focus)}
                   >
                     {t("Show more news")}
                     <ChevronDown className="h-4 w-4 transition-transform group-hover:translate-y-0.5" aria-hidden="true" />

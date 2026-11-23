@@ -41,8 +41,8 @@ export function DataPanel({
       <div className="flex flex-wrap items-center justify-between gap-2">
         <div role="group" aria-label={`${title}: view as`} className={cn("inline-flex rounded-xl p-1", dark ? "bg-white/10" : "bg-gray-100")}>
           {(["chart", "table"] as const).map((v) => (
-            <button key={v} type="button" aria-pressed={view === v} onClick={() => setView(v)} className={cn("relative inline-flex min-h-9 items-center gap-1.5 rounded-lg px-3 text-xs font-semibold capitalize transition", ring, view === v ? (dark ? "text-[#0A4A13]" : "text-white") : dark ? "text-white/70" : "text-gray-600")}>
-              {view === v && <motion.span layoutId={`view-${name}`} className={cn("absolute inset-0 -z-0 rounded-lg", dark ? "bg-[#F4D27A]" : "bg-[#117F21]")} transition={{ type: "spring", stiffness: 400, damping: 32 }} />}
+            <button key={v} type="button" aria-pressed={view === v} onClick={() => setView(v)} className={cn("relative inline-flex min-h-9 items-center gap-1.5 rounded-lg px-3 text-xs font-semibold capitalize transition", ring, view === v ? (dark ? "text-[#105D1D]" : "text-white") : dark ? "text-white/70" : "text-gray-600")}>
+              {view === v && <motion.span layoutId={`view-${name}`} className={cn("absolute inset-0 -z-0 rounded-lg", dark ? "bg-[#F4D27A]" : "bg-[#14892A]")} transition={{ type: "spring", stiffness: 400, damping: 32 }} />}
               <span className="relative flex items-center gap-1.5">{v === "chart" ? <BarChart3 className="h-3.5 w-3.5" aria-hidden="true" /> : <Table2 className="h-3.5 w-3.5" aria-hidden="true" />}{v}</span>
             </button>
           ))}
@@ -68,7 +68,7 @@ export function DataTable({ head, rows, dark }: { head: string[]; rows: (string 
   return (
     <div className={cn("max-h-[420px] overflow-auto rounded-2xl border", dark ? "border-white/15" : "border-gray-200")}>
       <table className="w-full min-w-[320px] text-left text-sm">
-        <thead className={cn("sticky top-0", dark ? "bg-[#0A3A10]" : "bg-gray-50")}>
+        <thead className={cn("sticky top-0", dark ? "bg-[#14581D]" : "bg-gray-50")}>
           <tr>{head.map((h, i) => <th key={h} scope="col" className={cn("px-4 py-3 font-semibold", i > 0 && "text-right", dark ? "text-white/80" : "text-gray-600")}>{h}</th>)}</tr>
         </thead>
         <tbody>
@@ -104,7 +104,7 @@ export function AreaChart({ data, fmt, label, dark, height = 320 }: { data: { la
   const ticks = Array.from({ length: 4 }, (_, i) => lo + ((hi - lo) * i) / 3);
   const every = Math.ceil(data.length / Math.max(2, Math.floor(W / 90)));
   const h = hover ?? data.length - 1;
-  const tone = dark ? { grid: "rgba(255,255,255,0.08)", txt: "rgba(255,255,255,0.55)", line: "#F4D27A" } : { grid: "#EDF1EC", txt: "#6B7280", line: "#117F21" };
+  const tone = dark ? { grid: "rgba(255,255,255,0.08)", txt: "rgba(255,255,255,0.55)", line: "#F4D27A" } : { grid: "#EDF1EC", txt: "#6B7280", line: "#14892A" };
 
   const onMove = (e: React.PointerEvent<SVGSVGElement>) => {
     const r = e.currentTarget.getBoundingClientRect();
@@ -144,7 +144,7 @@ export function AreaChart({ data, fmt, label, dark, height = 320 }: { data: { la
           {inView && (
             <g>
               <line x1={x(h)} x2={x(h)} y1={pad.t} y2={H - pad.b} stroke={tone.line} strokeDasharray="4 4" opacity={0.5} />
-              <motion.circle cx={x(h)} cy={y(data[h].v)} r={6} fill={dark ? "#0A4A13" : "#fff"} stroke={tone.line} strokeWidth={3} animate={{ cx: x(h), cy: y(data[h].v) }} transition={{ type: "spring", stiffness: 500, damping: 35 }} />
+              <motion.circle cx={x(h)} cy={y(data[h].v)} r={6} fill={dark ? "#105D1D" : "#fff"} stroke={tone.line} strokeWidth={3} animate={{ cx: x(h), cy: y(data[h].v) }} transition={{ type: "spring", stiffness: 500, damping: 35 }} />
             </g>
           )}
         </svg>
@@ -152,7 +152,7 @@ export function AreaChart({ data, fmt, label, dark, height = 320 }: { data: { la
       {w > 0 && inView && (
         <motion.div
           aria-hidden="true"
-          className={cn("pointer-events-none absolute top-0 rounded-xl px-3 py-2 text-xs shadow-xl", dark ? "bg-white text-[#0A4A13]" : "bg-[#0A4A13] text-white")}
+          className={cn("pointer-events-none absolute top-0 rounded-xl px-3 py-2 text-xs shadow-xl", dark ? "bg-white text-[#105D1D]" : "bg-[#105D1D] text-white")}
           animate={{ left: Math.min(Math.max(x(h) - 60, 0), W - 130) }}
           transition={{ type: "spring", stiffness: 500, damping: 40 }}
         >
@@ -205,7 +205,7 @@ export function Donut({ items, colors, total, unit }: { items: { k: string; v: n
           <AnimatePresence mode="wait">
             <motion.div key={cur?.k ?? "total"} initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.9 }} transition={{ duration: 0.2 }}>
               <p className="text-xs font-semibold uppercase tracking-wider text-gray-500">{cur ? cur.k : "Total"}</p>
-              <p className="font-display text-3xl font-bold text-[#0A2E10]">{unit(cur ? cur.v : total)}</p>
+              <p className="font-display text-3xl font-bold text-[#164D20]">{unit(cur ? cur.v : total)}</p>
               {cur && <p className="text-sm font-semibold" style={{ color: colors[cur.k] }}>{(cur.frac * 100).toFixed(1)}%</p>}
             </motion.div>
           </AnimatePresence>
@@ -235,7 +235,7 @@ export function Donut({ items, colors, total, unit }: { items: { k: string; v: n
 
 /* ─────────────────────────── Column chart ─────────────────────────── */
 
-export function Columns({ data, fmt, color = "#117F21", dark, highlightLast = true }: { data: { label: string; v: number; note?: string }[]; fmt: (v: number) => string; color?: string; dark?: boolean; highlightLast?: boolean }) {
+export function Columns({ data, fmt, color = "#14892A", dark, highlightLast = true }: { data: { label: string; v: number; note?: string }[]; fmt: (v: number) => string; color?: string; dark?: boolean; highlightLast?: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const reduce = useReducedMotion();
@@ -249,7 +249,7 @@ export function Columns({ data, fmt, color = "#117F21", dark, highlightLast = tr
         const last = highlightLast && i === data.length - 1;
         return (
           <div key={d.label} className="group flex h-full flex-1 flex-col items-center justify-end">
-            <motion.span initial={{ opacity: 0, y: 6 }} animate={{ opacity: inView ? 1 : 0, y: 0 }} transition={{ delay: reduce ? 0 : 0.5 + i * 0.08 }} className={cn("mb-1.5 whitespace-nowrap text-[11px] font-bold tabular-nums sm:text-xs", dark ? "text-white" : "text-[#0A2E10]")}>
+            <motion.span initial={{ opacity: 0, y: 6 }} animate={{ opacity: inView ? 1 : 0, y: 0 }} transition={{ delay: reduce ? 0 : 0.5 + i * 0.08 }} className={cn("mb-1.5 whitespace-nowrap text-[11px] font-bold tabular-nums sm:text-xs", dark ? "text-white" : "text-[#164D20]")}>
               {fmt(d.v)}{d.note && <sup className="ml-0.5 text-[#CB9615]">*</sup>}
             </motion.span>
             <motion.span

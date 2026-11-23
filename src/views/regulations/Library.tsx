@@ -70,7 +70,7 @@ function CheckRow({ label, count, checked, onChange, dot }: { label: string; cou
         aria-hidden="true"
         className={cn(
           "flex h-5 w-5 shrink-0 items-center justify-center rounded-md border-2 transition peer-focus-visible:outline peer-focus-visible:outline-[3px] peer-focus-visible:outline-[#FFD84D]",
-          checked ? "border-[#117F21] bg-[#117F21] text-white" : "border-gray-300 bg-white group-hover:border-[#117F21]",
+          checked ? "border-[#14892A] bg-[#14892A] text-white" : "border-gray-300 bg-white group-hover:border-[#14892A]",
         )}
       >
         {checked && <Check className="h-3.5 w-3.5" strokeWidth={3} />}
@@ -128,7 +128,7 @@ function Facets({ f, set }: { f: Filters; set: (p: Partial<Filters>) => void }) 
                   layout
                   className={cn(
                     "block w-full rounded-t-[3px] transition-colors",
-                    on ? "bg-[#CB9615]" : f.years.length ? "bg-gray-200 group-hover:bg-[#117F21]/60" : "bg-[#117F21]/70 group-hover:bg-[#117F21]",
+                    on ? "bg-[#CB9615]" : f.years.length ? "bg-gray-200 group-hover:bg-[#14892A]/60" : "bg-[#14892A]/70 group-hover:bg-[#14892A]",
                   )}
                   style={{ height: `${Math.max(n ? 6 : 2, (n / maxYear) * 100)}%` }}
                 />
@@ -182,11 +182,11 @@ function ResultCard({ d, onOpen, i }: { d: RegDoc; onOpen: (id: string) => void;
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.97 }}
       transition={{ duration: 0.3, delay: Math.min(i, 8) * 0.03, ease }}
-      className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white has-[button:focus-visible]:ring-[3px] has-[button:focus-visible]:ring-[#FFD84D] transition-shadow duration-300 hover:border-[#117F21]/30 hover:shadow-[0_24px_50px_-26px_rgba(10,74,19,0.45)]"
+      className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white has-[button:focus-visible]:ring-[3px] has-[button:focus-visible]:ring-[#FFD84D] transition-shadow duration-300 hover:border-[#14892A]/30 hover:shadow-[0_24px_50px_-26px_rgba(16,93,29,0.45)]"
     >
       <span aria-hidden="true" className={cn("absolute inset-y-0 left-0 w-1 origin-top scale-y-0 transition-transform duration-500 group-hover:scale-y-100", typeStyle[d.type].dot)} />
       <div className="flex gap-4 p-5 sm:p-6">
-        <span className="hidden h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#F4F7F2] text-[#117F21] transition group-hover:bg-[#117F21] group-hover:text-white sm:flex">
+        <span className="hidden h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#F4F7F2] text-[#117F21] transition group-hover:bg-[#14892A] group-hover:text-white sm:flex">
           <FileText className="h-5 w-5" aria-hidden="true" />
         </span>
         <div className="min-w-0 flex-1">
@@ -198,7 +198,7 @@ function ResultCard({ d, onOpen, i }: { d: RegDoc; onOpen: (id: string) => void;
               {fmtDate(d.date)}
             </span>
           </div>
-          <h3 className="mt-2.5 text-[1.05rem] font-bold leading-snug text-[#0A2E10]">
+          <h3 className="mt-2.5 text-[1.05rem] font-bold leading-snug text-[#164D20]">
             <button
               type="button"
               onClick={() => onOpen(d.id)}
@@ -218,7 +218,7 @@ function ResultCard({ d, onOpen, i }: { d: RegDoc; onOpen: (id: string) => void;
           href={d.pdf}
           target="_blank"
           rel="noopener noreferrer"
-          className="relative z-10 hidden h-11 shrink-0 items-center gap-1.5 self-center rounded-xl border border-gray-200 px-3.5 text-sm font-semibold text-gray-700 transition hover:border-[#117F21] hover:text-[#117F21] focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#FFD84D] md:inline-flex"
+          className="relative z-10 hidden h-11 shrink-0 items-center gap-1.5 self-center rounded-xl border border-gray-200 px-3.5 text-sm font-semibold text-gray-700 transition hover:border-[#14892A] hover:text-[#117F21] focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#FFD84D] md:inline-flex"
         >
           <Download className="h-4 w-4" aria-hidden="true" />
           PDF
@@ -272,7 +272,7 @@ export default function Library({ f, set, onOpen }: { f: Filters; set: (p: Parti
         {/* Search + sort bar */}
         <div className="sticky top-[152px] z-20 mt-10 rounded-2xl border border-gray-200 bg-white/90 p-2 shadow-[0_20px_40px_-30px_rgba(0,0,0,0.4)] backdrop-blur-xl">
           <div className="flex flex-col gap-2 sm:flex-row">
-            <label className="flex flex-1 items-center gap-3 rounded-xl px-3 focus-within:ring-2 focus-within:ring-[#117F21]/30">
+            <label className="flex flex-1 items-center gap-3 rounded-xl px-3 focus-within:ring-2 focus-within:ring-[#14892A]/30">
               <Search className="h-5 w-5 shrink-0 text-[#117F21]" aria-hidden="true" />
               <span className="sr-only">Search the library</span>
               <input
@@ -304,7 +304,7 @@ export default function Library({ f, set, onOpen }: { f: Filters; set: (p: Parti
                 onClick={() => setMobileFilters((o) => !o)}
                 aria-expanded={mobileFilters}
                 aria-controls="reg-facets"
-                className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-[#117F21] px-4 text-sm font-semibold text-white lg:hidden"
+                className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-[#14892A] px-4 text-sm font-semibold text-white lg:hidden"
               >
                 <SlidersHorizontal className="h-4 w-4" aria-hidden="true" />
                 Filters{chips.length ? ` (${chips.length})` : ""}
@@ -327,7 +327,7 @@ export default function Library({ f, set, onOpen }: { f: Filters; set: (p: Parti
           <div className="lg:col-span-9">
             <div className="flex flex-wrap items-center gap-2">
               <p className="mr-2 text-sm text-gray-600" aria-live="polite">
-                <strong className="text-lg text-[#0A2E10]">{results.length}</strong> of {library.length} documents
+                <strong className="text-lg text-[#164D20]">{results.length}</strong> of {library.length} documents
               </p>
               <LayoutGroup>
                 <AnimatePresence initial={false}>
@@ -340,7 +340,7 @@ export default function Library({ f, set, onOpen }: { f: Filters; set: (p: Parti
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.8 }}
                       onClick={c.clear}
-                      className="inline-flex min-h-9 items-center gap-1.5 rounded-full bg-[#0A4A13] pl-3 pr-2 text-xs font-semibold text-white transition hover:bg-[#B52026] focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#FFD84D]"
+                      className="inline-flex min-h-9 items-center gap-1.5 rounded-full bg-[#105D1D] pl-3 pr-2 text-xs font-semibold text-white transition hover:bg-[#B52026] focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#FFD84D]"
                     >
                       {c.label}
                       <X className="h-3.5 w-3.5" aria-hidden="true" />
@@ -362,12 +362,12 @@ export default function Library({ f, set, onOpen }: { f: Filters; set: (p: Parti
             {results.length === 0 ? (
               <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mt-6 rounded-3xl border border-dashed border-gray-300 bg-white p-10 text-center">
                 <Search className="mx-auto h-10 w-10 text-gray-300" aria-hidden="true" />
-                <h3 className="mt-4 text-lg font-bold text-[#0A2E10]">No documents match</h3>
+                <h3 className="mt-4 text-lg font-bold text-[#164D20]">No documents match</h3>
                 <p className="mx-auto mt-2 max-w-md text-sm text-gray-600">
                   Try fewer words, remove a filter, or search for a topic such as “transfer”, “investment” or “benefits”.
                 </p>
                 <div className="mt-6 flex flex-wrap justify-center gap-3">
-                  <button type="button" onClick={clearAll} className="min-h-11 rounded-xl bg-[#117F21] px-5 text-sm font-semibold text-white">
+                  <button type="button" onClick={clearAll} className="min-h-11 rounded-xl bg-[#14892A] px-5 text-sm font-semibold text-white">
                     Clear all filters
                   </button>
                   <button
@@ -392,13 +392,13 @@ export default function Library({ f, set, onOpen }: { f: Filters; set: (p: Parti
                 {shown < results.length && (
                   <div className="mt-8 flex flex-col items-center gap-3">
                     <div className="h-1.5 w-48 overflow-hidden rounded-full bg-gray-200" aria-hidden="true">
-                      <motion.div className="h-full bg-[#117F21]" animate={{ width: `${(shown / results.length) * 100}%` }} />
+                      <motion.div className="h-full bg-[#14892A]" animate={{ width: `${(shown / results.length) * 100}%` }} />
                     </div>
                     <p className="text-xs text-gray-500">Showing {shown} of {results.length}</p>
                     <button
                       type="button"
                       onClick={() => setShown((s) => s + PAGE)}
-                      className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-[#117F21]/30 bg-white px-6 text-sm font-semibold text-[#117F21] transition hover:border-[#117F21] hover:bg-[#E8F5E9] focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#FFD84D]"
+                      className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-[#14892A]/30 bg-white px-6 text-sm font-semibold text-[#117F21] transition hover:border-[#14892A] hover:bg-[#E8F5E9] focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#FFD84D]"
                     >
                       Show {Math.min(PAGE, results.length - shown)} more
                       <ArrowUpRight className="h-4 w-4 rotate-90" aria-hidden="true" />

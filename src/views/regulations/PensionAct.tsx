@@ -47,14 +47,14 @@ function SectionCard({ s, q, partN }: { s: Section; q: string; partN: string }) 
     <motion.article
       id={`s-${s.n}`} aria-labelledby={`s-${s.n}-t`}
       initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.45, ease }}
-      className="group scroll-mt-44 rounded-3xl border border-gray-200 bg-white p-6 transition hover:border-[#117F21]/30 hover:shadow-[0_24px_50px_-34px_rgba(10,74,19,0.5)] sm:p-8 print:break-inside-avoid print:border-0 print:p-0"
+      className="group scroll-mt-44 rounded-3xl border border-gray-200 bg-white p-6 transition hover:border-[#14892A]/30 hover:shadow-[0_24px_50px_-34px_rgba(16,93,29,0.5)] sm:p-8 print:break-inside-avoid print:border-0 print:p-0"
     >
       <header className="flex flex-wrap items-start justify-between gap-3">
         <div className="flex items-start gap-4">
-          <span className="flex h-12 min-w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-[#0A4A13] to-[#117F21] px-2 font-display text-lg font-bold text-white shadow-[0_10px_24px_-10px_rgba(17,127,33,0.8)]">{s.n}</span>
+          <span className="flex h-12 min-w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-[#105D1D] to-[#14892A] px-2 font-display text-lg font-bold text-white shadow-[0_10px_24px_-10px_rgba(20,137,42,0.8)]">{s.n}</span>
           <div>
             <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-gray-400">Part {partN} · Section {s.n}</p>
-            <h3 id={`s-${s.n}-t`} className="mt-0.5 text-lg font-bold leading-snug text-[#0A2E10] sm:text-xl"><Mark text={s.title} q={q} /></h3>
+            <h3 id={`s-${s.n}-t`} className="mt-0.5 text-lg font-bold leading-snug text-[#164D20] sm:text-xl"><Mark text={s.title} q={q} /></h3>
           </div>
         </div>
         <div className="flex gap-1 opacity-100 transition sm:opacity-0 sm:group-hover:opacity-100 sm:group-focus-within:opacity-100 print:hidden">
@@ -118,7 +118,7 @@ export default function PensionAct() {
         kind="Act of the National Assembly"
         icon={<Gavel className="h-3.5 w-3.5" aria-hidden="true" />}
         title="Pension Reform Act 2014"
-        badge={<span className="inline-flex items-center gap-1.5 rounded-full bg-[#E8F5E9] px-3 py-1 text-xs font-bold text-[#0A4A13] ring-1 ring-[#117F21]/20"><span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#117F21]" />In force</span>}
+        badge={<span className="inline-flex items-center gap-1.5 rounded-full bg-[#E8F5E9] px-3 py-1 text-xs font-bold text-[#105D1D] ring-1 ring-[#14892A]/20"><span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#14892A]" />In force</span>}
         lead="This Act repeals the Pension Reform Act No. 2, 2004 and enacts the Pension Reform Act, 2014 to continue to govern and regulate the administration of the uniform contributory pension scheme for both the public and private sectors in Nigeria."
         meta={[
           { label: "Signed into law", value: "1 July 2014" },
@@ -138,11 +138,11 @@ export default function PensionAct() {
           <label className="relative flex-1">
             <span className="sr-only">Search the Act</span>
             <Search className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" aria-hidden="true" />
-            <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search the Act, e.g. “retirement savings account”, “penalty”, “death”" className="min-h-12 w-full rounded-2xl border border-gray-300 bg-white pl-12 pr-12 focus:border-[#117F21] focus:outline-none focus:ring-4 focus:ring-[#117F21]/15" />
+            <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search the Act, e.g. “retirement savings account”, “penalty”, “death”" className="min-h-12 w-full rounded-2xl border border-gray-300 bg-white pl-12 pr-12 focus:border-[#14892A] focus:outline-none focus:ring-4 focus:ring-[#14892A]/15" />
             {q && <button type="button" onClick={() => setQ("")} aria-label="Clear search" className={cn("absolute right-2 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full hover:bg-gray-100", ring)}><X className="h-4 w-4" aria-hidden="true" /></button>}
           </label>
           <p className="text-sm text-gray-600 md:w-56" aria-live="polite">
-            {matches ? <><strong className="text-[#0A2E10]">{matches.length}</strong> section{matches.length === 1 ? "" : "s"} mention “{dq.trim()}”</> : "Search across all 121 sections"}
+            {matches ? <><strong className="text-[#164D20]">{matches.length}</strong> section{matches.length === 1 ? "" : "s"} mention “{dq.trim()}”</> : "Search across all 121 sections"}
           </p>
           <DocTools size={size} setSize={setSize} />
         </div>
@@ -166,9 +166,9 @@ export default function PensionAct() {
                     if (!s) return null;
                     return (
                       <motion.li key={n} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.04 }}>
-                        <button type="button" onClick={() => go(n)} className={cn("group flex h-full w-full items-start gap-3 rounded-2xl border border-gray-200 bg-white p-3 text-left transition hover:-translate-y-0.5 hover:border-[#117F21]/40 hover:shadow-md", ring)}>
-                          <span className="flex h-8 min-w-8 items-center justify-center rounded-lg bg-[#E8F5E9] text-sm font-bold text-[#117F21] transition group-hover:bg-[#117F21] group-hover:text-white">{n}</span>
-                          <span className="text-sm font-semibold leading-snug text-[#0A2E10]">{s.title}</span>
+                        <button type="button" onClick={() => go(n)} className={cn("group flex h-full w-full items-start gap-3 rounded-2xl border border-gray-200 bg-white p-3 text-left transition hover:-translate-y-0.5 hover:border-[#14892A]/40 hover:shadow-md", ring)}>
+                          <span className="flex h-8 min-w-8 items-center justify-center rounded-lg bg-[#E8F5E9] text-sm font-bold text-[#117F21] transition group-hover:bg-[#14892A] group-hover:text-white">{n}</span>
+                          <span className="text-sm font-semibold leading-snug text-[#164D20]">{s.title}</span>
                         </button>
                       </motion.li>
                     );
@@ -187,7 +187,7 @@ export default function PensionAct() {
                   if (!secs.length) return null;
                   return (
                     <section key={p.n} id={`part-${p.n}`} aria-labelledby={`part-${p.n}-t`} className="scroll-mt-44">
-                      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#0A4A13] to-[#0A4A13] px-6 py-7 text-white sm:px-8">
+                      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#105D1D] to-[#105D1D] px-6 py-7 text-white sm:px-8">
                         <span aria-hidden="true" className="pointer-events-none absolute -right-2 -top-8 select-none font-serif text-[8rem] font-bold leading-none text-white/[0.06]">{p.n}</span>
                         <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#F4D27A]">Part {p.n}</p>
                         <h2 id={`part-${p.n}-t`} className="relative mt-1 text-2xl font-bold">{p.title}</h2>
@@ -200,9 +200,9 @@ export default function PensionAct() {
                   );
                 })}
                 {!matches && data.schedules.map((s, i) => (
-                  <section key={s.title} id={`sch-${i}`} className="scroll-mt-44 rounded-3xl border border-dashed border-[#117F21]/40 bg-white p-6 sm:p-8">
+                  <section key={s.title} id={`sch-${i}`} className="scroll-mt-44 rounded-3xl border border-dashed border-[#14892A]/40 bg-white p-6 sm:p-8">
                     <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#117F21]">Schedule</p>
-                    <h2 className="mt-1 text-2xl font-bold text-[#0A2E10]">{s.title}</h2>
+                    <h2 className="mt-1 text-2xl font-bold text-[#164D20]">{s.title}</h2>
                     <div className="mt-5"><Blocks blocks={s.blocks} q="" /></div>
                     {i === 1 && <p className="mt-4 text-sm text-gray-500">The formula tables in this Schedule are easier to read in the <a href={`${PDF}#page=60`} target="_blank" rel="noopener noreferrer" className="font-semibold text-[#117F21] underline">official PDF</a>.</p>}
                   </section>
@@ -210,7 +210,7 @@ export default function PensionAct() {
                 <AnimatePresence>
                   {matches && matches.length === 0 && (
                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="rounded-3xl bg-white p-10 text-center">
-                      <p className="text-lg font-semibold text-[#0A2E10]">No section mentions “{dq.trim()}”.</p>
+                      <p className="text-lg font-semibold text-[#164D20]">No section mentions “{dq.trim()}”.</p>
                       <p className="mt-1 text-gray-600">Try a shorter word, or ask the PenCom Assistant.</p>
                     </motion.div>
                   )}
@@ -221,7 +221,7 @@ export default function PensionAct() {
             <div className="space-y-4 print:hidden">
               <VerifyNote>This web version was prepared from the gazetted copy of the Act using text recognition, so it is easier to read, search and link to. Legal Services will check it against the gazette before publication. If the two ever differ, the gazetted text is authoritative.</VerifyNote>
               <PdfCard href={PDF} title="Pension Reform Act 2014 (gazetted copy)" meta="PDF · 62 pages · 1.2 MB" />
-              <Link to="/regulations#library" className={cn("group flex items-center justify-between rounded-3xl border border-gray-200 bg-white p-6 font-semibold text-[#0A2E10] hover:border-[#117F21]", ring)}>
+              <Link to="/regulations#library" className={cn("group flex items-center justify-between rounded-3xl border border-gray-200 bg-white p-6 font-semibold text-[#164D20] hover:border-[#14892A]", ring)}>
                 Regulations, guidelines and circulars issued under the Act
                 <ArrowRight className="h-5 w-5 text-[#117F21] transition-transform group-hover:translate-x-1" aria-hidden="true" />
               </Link>

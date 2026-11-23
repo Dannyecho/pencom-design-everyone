@@ -50,7 +50,7 @@ export function Mark({ text, q }: { text: string; q: string }) {
 export function ReadingBar() {
   const { scrollYProgress } = useScroll();
   const x = useSpring(scrollYProgress, { stiffness: 140, damping: 30, restDelta: 0.001 });
-  return <motion.div aria-hidden="true" style={{ scaleX: x }} className="fixed inset-x-0 top-[92px] z-30 h-[3px] origin-left bg-gradient-to-r from-[#117F21] via-[#2E913D] to-[#CB9615] print:hidden" />;
+  return <motion.div aria-hidden="true" style={{ scaleX: x }} className="fixed inset-x-0 top-[92px] z-30 h-[3px] origin-left bg-gradient-to-r from-[#14892A] via-[#36A045] to-[#CB9615] print:hidden" />;
 }
 
 export function DocHero({
@@ -67,7 +67,7 @@ export function DocHero({
 }) {
   const reduce = useReducedMotion();
   return (
-    <header className="relative isolate overflow-hidden bg-[#F6F8F3] text-[#0E2414] print:bg-white">
+    <header className="relative isolate overflow-hidden bg-[#F6F8F3] text-[#1C4226] print:bg-white">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 print:hidden">
         <motion.div
           className="absolute -left-40 -top-40 h-[34rem] w-[34rem] rounded-full bg-[#BFE3C4]/70 blur-[110px]"
@@ -75,7 +75,7 @@ export function DocHero({
           transition={{ duration: 18, repeat: 2, ease: "easeInOut" }}
         />
         <div className="absolute -right-32 top-24 h-[28rem] w-[28rem] rounded-full bg-[#F8E2A8]/70 blur-[110px]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(10,74,19,0.08)_1px,transparent_0)] [background-size:28px_28px] [mask-image:linear-gradient(to_bottom,black,transparent_85%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(16,93,29,0.08)_1px,transparent_0)] [background-size:28px_28px] [mask-image:linear-gradient(to_bottom,black,transparent_85%)]" />
       </div>
       <div className="mx-auto max-w-7xl px-4 pb-14 pt-8 sm:pt-10">
         <nav aria-label="Breadcrumb" className="print:hidden">
@@ -84,9 +84,9 @@ export function DocHero({
               <li key={c.label} className="flex items-center gap-2">
                 {i > 0 && <span aria-hidden="true">/</span>}
                 {c.to ? (
-                  <Link to={c.to} className={cn("rounded hover:text-[#0A4A13] hover:underline", ring)}>{c.label}</Link>
+                  <Link to={c.to} className={cn("rounded hover:text-[#105D1D] hover:underline", ring)}>{c.label}</Link>
                 ) : (
-                  <span aria-current="page" className="font-semibold text-[#0E2414]">{c.label}</span>
+                  <span aria-current="page" className="font-semibold text-[#1C4226]">{c.label}</span>
                 )}
               </li>
             ))}
@@ -95,7 +95,7 @@ export function DocHero({
         <div className="mt-6 grid grid-cols-1 items-end gap-10 lg:grid-cols-12">
           <div className="lg:col-span-8">
             <motion.p initial={{ opacity: 0, y: reduce ? 0 : 10 }} animate={{ opacity: 1, y: 0 }} className="flex flex-wrap items-center gap-2">
-              <span className="inline-flex items-center gap-2 rounded-full bg-white/80 px-3.5 py-1.5 text-sm font-semibold text-[#0A4A13] shadow-sm ring-1 ring-black/5 backdrop-blur">
+              <span className="inline-flex items-center gap-2 rounded-full bg-white/80 px-3.5 py-1.5 text-sm font-semibold text-[#105D1D] shadow-sm ring-1 ring-black/5 backdrop-blur">
                 {icon ?? <FileText className="h-4 w-4" aria-hidden="true" />} {kind}
               </span>
               {badge}
@@ -110,8 +110,8 @@ export function DocHero({
             {actions && <motion.div initial={{ opacity: 0, y: reduce ? 0 : 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25 }} className="mt-8 flex flex-wrap gap-3 print:hidden">{actions}</motion.div>}
           </div>
           <motion.div initial={{ opacity: 0, y: reduce ? 0 : 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.7, ease }} className="relative lg:col-span-4">
-            <div aria-hidden="true" className="absolute -inset-2 -z-10 translate-x-2 translate-y-2 rounded-[1.8rem] bg-[#0A4A13] print:hidden" />
-            <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-[1.6rem] bg-black/5 shadow-[0_30px_60px_-30px_rgba(10,46,16,0.6)] ring-1 ring-black/5">
+            <div aria-hidden="true" className="absolute -inset-2 -z-10 translate-x-2 translate-y-2 rounded-[1.8rem] bg-[#105D1D] print:hidden" />
+            <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-[1.6rem] bg-black/5 shadow-[0_30px_60px_-30px_rgba(22,77,32,0.6)] ring-1 ring-black/5">
               {meta.map((m) => (
                 <div key={m.label} className="bg-white p-4">
                   <dt className="text-[11px] font-semibold uppercase tracking-[0.14em] text-gray-500">{m.label}</dt>
@@ -131,7 +131,7 @@ export function PrimaryBtn({ href, children, external }: { href: string; childre
   return external ? <a href={href} target="_blank" rel="noopener noreferrer" className={cls}>{children}<span className="sr-only"> (opens in a new tab)</span></a> : <Link to={href} className={cls}>{children}</Link>;
 }
 export function GhostBtn({ onClick, children, href }: { onClick?: () => void; children: ReactNode; href?: string }) {
-  const cls = cn("inline-flex min-h-12 items-center gap-2 rounded-xl bg-white px-5 font-semibold text-[#0A4A13] ring-1 ring-black/10 transition hover:ring-[#117F21]", ring);
+  const cls = cn("inline-flex min-h-12 items-center gap-2 rounded-xl bg-white px-5 font-semibold text-[#105D1D] ring-1 ring-black/10 transition hover:ring-[#14892A]", ring);
   if (href) return <a href={href} onClick={onClick} className={cls}>{children}</a>;
   return <button type="button" onClick={onClick} className={cls}>{children}</button>;
 }
@@ -139,7 +139,7 @@ export function GhostBtn({ onClick, children, href }: { onClick?: () => void; ch
 /** Text size, print and copy-link tools. */
 export function DocTools({ size, setSize }: { size: number; setSize: (n: number) => void }) {
   const [copied, setCopied] = useState(false);
-  const btn = cn("flex h-11 w-11 items-center justify-center rounded-xl bg-white text-gray-600 ring-1 ring-black/10 transition hover:ring-[#117F21] hover:text-[#117F21] disabled:opacity-30", ring);
+  const btn = cn("flex h-11 w-11 items-center justify-center rounded-xl bg-white text-gray-600 ring-1 ring-black/10 transition hover:ring-[#14892A] hover:text-[#117F21] disabled:opacity-30", ring);
   return (
     <div className="flex flex-wrap items-center gap-2 print:hidden">
       <div role="group" aria-label="Text size" className="flex items-center gap-1">
@@ -191,7 +191,7 @@ export function Toc({ items, title = "Contents", className }: { items: { id: str
               href={`#${i.id}`}
               onClick={(e) => { e.preventDefault(); document.getElementById(i.id)?.scrollIntoView({ behavior: "smooth", block: "start" }); }}
               aria-current={active === i.id ? "location" : undefined}
-              className={cn("-ml-0.5 block border-l-2 py-1.5 pr-2 text-sm leading-snug transition", (i.level ?? 1) > 1 ? "pl-7 text-[13px]" : "pl-4", active === i.id ? "border-[#117F21] font-semibold text-[#117F21]" : "border-transparent text-gray-500 hover:text-gray-800")}
+              className={cn("-ml-0.5 block border-l-2 py-1.5 pr-2 text-sm leading-snug transition", (i.level ?? 1) > 1 ? "pl-7 text-[13px]" : "pl-4", active === i.id ? "border-[#14892A] font-semibold text-[#117F21]" : "border-transparent text-gray-500 hover:text-gray-800")}
             >
               {i.label}
             </a>
@@ -204,7 +204,7 @@ export function Toc({ items, title = "Contents", className }: { items: { id: str
 
 export function PdfCard({ href, title, meta }: { href: string; title: string; meta: string }) {
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer" className={cn("group relative flex items-center gap-5 overflow-hidden rounded-3xl bg-gradient-to-br from-[#0A4A13] to-[#117F21] p-6 text-white", ring)}>
+    <a href={href} target="_blank" rel="noopener noreferrer" className={cn("group relative flex items-center gap-5 overflow-hidden rounded-3xl bg-gradient-to-br from-[#105D1D] to-[#14892A] p-6 text-white", ring)}>
       <span aria-hidden="true" className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition duration-1000 group-hover:translate-x-full" />
       <span className="relative flex h-16 w-14 shrink-0 flex-col items-center justify-center rounded-lg bg-white text-[#B52026] shadow-lg transition group-hover:-rotate-6">
         <FileText className="h-6 w-6" aria-hidden="true" /><span className="text-[10px] font-black">PDF</span>
@@ -232,7 +232,7 @@ export function VerifyNote({ children }: { children?: ReactNode }) {
 export function Loading({ label = "Loading the document" }: { label?: string }) {
   return (
     <div className="flex min-h-[40vh] flex-col items-center justify-center gap-3 text-gray-500" role="status">
-      <span className="h-10 w-10 animate-spin rounded-full border-4 border-[#117F21]/20 border-t-[#117F21]" aria-hidden="true" />
+      <span className="h-10 w-10 animate-spin rounded-full border-4 border-[#14892A]/20 border-t-[#14892A]" aria-hidden="true" />
       {label}…
     </div>
   );

@@ -79,11 +79,11 @@ const focus = "focus-visible:outline focus-visible:outline-[3px] focus-visible:o
 function Kicker({ n, children, dark = false }: { n: string; children: string; dark?: boolean }) {
   const reduce = useReducedMotion();
   return (
-    <p className={cn("flex items-center gap-2.5 text-xs font-bold uppercase tracking-[0.16em] sm:gap-3 sm:tracking-[0.2em] lg:whitespace-nowrap", dark ? "text-white/80" : "text-[#0A4A13]")}>
+    <p className={cn("flex items-center gap-2.5 text-xs font-bold uppercase tracking-[0.16em] sm:gap-3 sm:tracking-[0.2em] lg:whitespace-nowrap", dark ? "text-white/80" : "text-[#105D1D]")}>
       <span className={cn("font-mono text-sm tracking-normal", dark ? "text-[#F4D27A]" : "text-[#B07E0C]")}>{n}</span>
       <motion.span
         aria-hidden="true"
-        className={cn("h-[2px] w-8 shrink-0 origin-left rounded-full", dark ? "bg-[#F4D27A]/70" : "bg-[#117F21]/50")}
+        className={cn("h-[2px] w-8 shrink-0 origin-left rounded-full", dark ? "bg-[#F4D27A]/70" : "bg-[#14892A]/50")}
         initial={{ scaleX: reduce ? 1 : 0 }}
         whileInView={{ scaleX: 1 }}
         viewport={{ once: true }}
@@ -128,7 +128,7 @@ export default function Footer() {
   const toTop = () => window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
 
   return (
-    <footer className="relative isolate overflow-hidden bg-[#F6F8F3] text-[#0E2414]" aria-labelledby="footer-title">
+    <footer className="relative isolate overflow-hidden bg-[#F6F8F3] text-[#1C4226]" aria-labelledby="footer-title">
       <h2 id="footer-title" className="sr-only">
         Site footer
       </h2>
@@ -137,10 +137,10 @@ export default function Footer() {
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute -left-40 top-24 h-[30rem] w-[30rem] rounded-full bg-[#BFE3C4]/60 blur-[120px]" />
         <div className="absolute -right-40 bottom-0 h-[26rem] w-[26rem] rounded-full bg-[#F8E2A8]/60 blur-[120px]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(10,74,19,0.07)_1px,transparent_0)] [background-size:28px_28px] [mask-image:linear-gradient(to_bottom,transparent,black_30%,black_70%,transparent)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(16,93,29,0.07)_1px,transparent_0)] [background-size:28px_28px] [mask-image:linear-gradient(to_bottom,transparent,black_30%,black_70%,transparent)]" />
       </div>
       {/* Brand line across the top */}
-      <div aria-hidden="true" className="h-1 bg-gradient-to-r from-[#0A4A13] via-[#CB9615] to-[#117F21]" />
+      <div aria-hidden="true" className="h-1 bg-gradient-to-r from-[#105D1D] via-[#CB9615] to-[#14892A]" />
 
       <div className="mx-auto max-w-7xl px-4 pt-14 sm:pt-16">
         {/* ── Feature panel: newsletter, app, social ── */}
@@ -152,8 +152,8 @@ export default function Footer() {
           className="relative"
         >
           <div aria-hidden="true" className="absolute -inset-2 -z-10 translate-x-2 translate-y-2 rounded-[2.2rem] bg-[#CB9615]/25 sm:-inset-3 sm:translate-x-3 sm:translate-y-3" />
-          <div className="relative overflow-hidden rounded-[2rem] bg-[#0A4A13] text-white shadow-[0_40px_80px_-40px_rgba(10,46,16,0.7)]">
-            <div aria-hidden="true" className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-[#117F21] blur-3xl" />
+          <div className="relative overflow-hidden rounded-[2rem] bg-[#105D1D] text-white shadow-[0_40px_80px_-40px_rgba(22,77,32,0.7)]">
+            <div aria-hidden="true" className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-[#14892A] blur-3xl" />
             <div aria-hidden="true" className="pointer-events-none absolute -bottom-32 left-1/3 h-72 w-72 rounded-full bg-[#CB9615]/30 blur-3xl" />
 
             <div className="relative grid grid-cols-1 gap-8 p-5 sm:gap-10 sm:p-10 lg:grid-cols-12 lg:gap-12">
@@ -194,7 +194,7 @@ export default function Footer() {
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             placeholder="you@example.com"
-                            className="min-h-12 w-full bg-transparent text-base text-[#0E2414] placeholder:text-gray-400 focus:outline-none"
+                            className="min-h-12 w-full bg-transparent text-base text-[#1C4226] placeholder:text-gray-400 focus:outline-none"
                           />
                         </span>
                         <button
@@ -223,7 +223,7 @@ export default function Footer() {
                       <Link
                         key={s.name}
                         to="/mobile"
-                        className={cn("group inline-flex min-h-14 items-center gap-3 rounded-2xl bg-white/10 px-4 ring-1 ring-white/15 transition hover:-translate-y-0.5 hover:bg-white hover:text-[#0A4A13]", focus)}
+                        className={cn("group inline-flex min-h-14 items-center gap-3 rounded-2xl bg-white/10 px-4 ring-1 ring-white/15 transition hover:-translate-y-0.5 hover:bg-white hover:text-[#105D1D]", focus)}
                       >
                         <s.icon className="h-6 w-6" aria-hidden="true" />
                         <span className="text-left">
@@ -277,11 +277,11 @@ export default function Footer() {
               {contacts.map((c) => {
                 const inner = (
                   <>
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-[#0A4A13] ring-1 ring-black/10 transition group-hover:bg-[#0A4A13] group-hover:text-white">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-[#105D1D] ring-1 ring-black/10 transition group-hover:bg-[#105D1D] group-hover:text-white">
                       <c.icon className="h-[18px] w-[18px]" aria-hidden="true" />
                     </span>
                     <span className="min-w-0">
-                      <span className="block text-xs font-bold uppercase tracking-[0.14em] text-[#0A4A13]">{c.label}</span>
+                      <span className="block text-xs font-bold uppercase tracking-[0.14em] text-[#105D1D]">{c.label}</span>
                       <span className="block break-words text-sm text-gray-700">{c.value}</span>
                     </span>
                   </>
@@ -298,7 +298,7 @@ export default function Footer() {
               <ul className={cn("mt-5 space-y-1", col.links.length > 4 && "columns-2 gap-6")}>
                 {col.links.map((l) => (
                   <li key={l.label} className="break-inside-avoid">
-                    <Link to={l.href} className={cn("group inline-flex min-h-9 items-center gap-1.5 rounded py-1 text-[0.95rem] text-gray-700 transition hover:text-[#0A4A13]", focus)}>
+                    <Link to={l.href} className={cn("group inline-flex min-h-9 items-center gap-1.5 rounded py-1 text-[0.95rem] text-gray-700 transition hover:text-[#105D1D]", focus)}>
                       <span className="relative">
                         {l.label}
                         <span aria-hidden="true" className="absolute -bottom-0.5 left-0 h-[2px] w-full origin-left scale-x-0 rounded-full bg-[#CB9615] transition-transform duration-300 group-hover:scale-x-100" />
@@ -323,7 +323,7 @@ export default function Footer() {
                     href={`https://${p.name.toLowerCase()}.pencom.gov.ng`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={cn("group flex min-h-12 items-center gap-3 rounded-2xl bg-[#F6F8F3] px-4 ring-1 ring-black/5 transition hover:-translate-y-0.5 hover:bg-[#0A4A13] hover:text-white", focus)}
+                    className={cn("group flex min-h-12 items-center gap-3 rounded-2xl bg-[#F6F8F3] px-4 ring-1 ring-black/5 transition hover:-translate-y-0.5 hover:bg-[#105D1D] hover:text-white", focus)}
                   >
                     <span className="font-bold">{p.name}</span>
                     <span className="hidden truncate text-sm text-gray-500 transition group-hover:text-white/75 sm:inline">{p.note}</span>
@@ -339,7 +339,7 @@ export default function Footer() {
 
       {/* ── Bottom bar ── */}
       <div className="mx-auto mt-10 max-w-7xl px-4 pb-8">
-        <div className="flex flex-col gap-4 border-t border-[#0E2414]/10 pt-6 md:flex-row md:items-center md:justify-between">
+        <div className="flex flex-col gap-4 border-t border-[#1C4226]/10 pt-6 md:flex-row md:items-center md:justify-between">
           <p className="text-sm text-gray-600">
             &copy; 2026 National Pension Commission. All rights reserved. Federal Republic of Nigeria.
           </p>
@@ -349,14 +349,14 @@ export default function Footer() {
               { label: "Report Employer", to: "/connect#report" },
               { label: "Privacy Policy", to: "/regulations#policies" },
             ].map((l) => (
-              <Link key={l.label} to={l.to} className={cn("rounded text-sm font-medium text-gray-700 hover:text-[#0A4A13] hover:underline", focus)}>
+              <Link key={l.label} to={l.to} className={cn("rounded text-sm font-medium text-gray-700 hover:text-[#105D1D] hover:underline", focus)}>
                 {l.label}
               </Link>
             ))}
             <button
               type="button"
               onClick={toTop}
-              className={cn("group inline-flex min-h-10 items-center gap-2 rounded-full bg-[#0A4A13] pl-4 pr-1.5 text-sm font-semibold text-white transition hover:bg-[#117F21]", focus)}
+              className={cn("group inline-flex min-h-10 items-center gap-2 rounded-full bg-[#105D1D] pl-4 pr-1.5 text-sm font-semibold text-white transition hover:bg-[#14892A]", focus)}
             >
               Back to top
               <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#F4D27A] text-[#1A1206] transition-transform group-hover:-translate-y-0.5">

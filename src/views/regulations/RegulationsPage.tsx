@@ -87,7 +87,7 @@ export default function RegulationsPage() {
 
   return (
     <MotionConfig reducedMotion="user">
-      <div className="bg-[#FBFCF9] text-[#0E2414]">
+      <div className="bg-[#FBFCF9] text-[#1C4226]">
         <Hero
           onSearch={(q) => {
             set({ q });
@@ -134,7 +134,7 @@ function Hero({ onSearch, onType, onOpen }: { onSearch: (q: string) => void; onT
               e.preventDefault();
               onSearch(q.trim());
             }}
-            className="flex items-center gap-2 rounded-2xl bg-white p-2 pl-4 shadow-[0_20px_40px_-28px_rgba(10,74,19,0.6)] ring-1 ring-black/10 focus-within:ring-2 focus-within:ring-[#117F21]"
+            className="flex items-center gap-2 rounded-2xl bg-white p-2 pl-4 shadow-[0_20px_40px_-28px_rgba(16,93,29,0.6)] ring-1 ring-black/10 focus-within:ring-2 focus-within:ring-[#14892A]"
           >
             <Search className="h-5 w-5 shrink-0 text-[#117F21]" aria-hidden="true" />
             <label htmlFor="reg-hero-q" className="sr-only">
@@ -147,7 +147,7 @@ function Hero({ onSearch, onType, onOpen }: { onSearch: (q: string) => void; onT
               placeholder="e.g. “RSA transfer”, “PPP”"
               className="min-h-12 w-full min-w-0 bg-transparent text-base placeholder:text-gray-400 focus:outline-none"
             />
-            <button type="submit" className={cn("min-h-12 shrink-0 rounded-xl bg-[#117F21] px-5 font-semibold text-white transition hover:bg-[#0A4A13]", focus)}>
+            <button type="submit" className={cn("min-h-12 shrink-0 rounded-xl bg-[#14892A] px-5 font-semibold text-white transition hover:bg-[#105D1D]", focus)}>
               Search
             </button>
           </form>
@@ -161,7 +161,7 @@ function Hero({ onSearch, onType, onOpen }: { onSearch: (q: string) => void; onT
                   setQ(x);
                   onSearch(x);
                 }}
-                className={cn("rounded-full bg-white/80 px-3 py-1 font-medium text-[#0A4A13] ring-1 ring-black/10 transition hover:bg-[#0A4A13] hover:text-white", focus)}
+                className={cn("rounded-full bg-white/80 px-3 py-1 font-medium text-[#105D1D] ring-1 ring-black/10 transition hover:bg-[#105D1D] hover:text-white", focus)}
               >
                 {x}
               </button>
@@ -173,10 +173,10 @@ function Hero({ onSearch, onType, onOpen }: { onSearch: (q: string) => void; onT
                 <button
                   type="button"
                   onClick={() => onType(c.t)}
-                  className={cn("group w-full rounded-2xl bg-white/80 p-4 text-left ring-1 ring-black/5 backdrop-blur transition duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_20px_40px_-24px_rgba(10,74,19,0.5)]", focus)}
+                  className={cn("group w-full rounded-2xl bg-white/80 p-4 text-left ring-1 ring-black/5 backdrop-blur transition duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_20px_40px_-24px_rgba(16,93,29,0.5)]", focus)}
                 >
-                  <span className="block font-mono text-3xl font-bold text-[#0A4A13]">{c.n}</span>
-                  <span className="mt-1 flex items-center gap-2 text-sm text-gray-600 group-hover:text-[#0A4A13]">
+                  <span className="block font-mono text-3xl font-bold text-[#105D1D]">{c.n}</span>
+                  <span className="mt-1 flex items-center gap-2 text-sm text-gray-600 group-hover:text-[#105D1D]">
                     <span aria-hidden="true" className={cn("h-2 w-2 rounded-full", typeStyle[c.t].dot)} />
                     {c.t}s
                   </span>
@@ -190,9 +190,9 @@ function Hero({ onSearch, onType, onOpen }: { onSearch: (q: string) => void; onT
       aside={
         <FramedPanel className="p-4 sm:p-5">
           <div className="flex items-center justify-between px-1">
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#0A4A13]">Latest issued</p>
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#105D1D]">Latest issued</p>
             <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#117F21]">
-              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#117F21]" aria-hidden="true" />
+              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#14892A]" aria-hidden="true" />
               Updated {fmtDate(latest[0].date)}
             </span>
           </div>
@@ -202,7 +202,7 @@ function Hero({ onSearch, onType, onOpen }: { onSearch: (q: string) => void; onT
                 <button
                   type="button"
                   onClick={() => onOpen(d.id)}
-                  className={cn("group flex w-full items-start gap-3 rounded-2xl bg-[#F6F8F3] p-3.5 text-left ring-1 ring-black/5 transition duration-300 hover:bg-[#0A4A13] hover:text-white", focus)}
+                  className={cn("group flex w-full items-start gap-3 rounded-2xl bg-[#F6F8F3] p-3.5 text-left ring-1 ring-black/5 transition duration-300 hover:bg-[#105D1D] hover:text-white", focus)}
                 >
                   <span className={cn("mt-0.5 shrink-0 rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider", typeStyle[d.type].chip)}>{d.type}</span>
                   <span className="min-w-0 flex-1">
@@ -216,7 +216,7 @@ function Hero({ onSearch, onType, onOpen }: { onSearch: (q: string) => void; onT
           </ul>
           <Link
             to="/regulations/pension-reform-act"
-            className={cn("group mt-3 flex items-center gap-4 rounded-2xl bg-gradient-to-r from-[#0A4A13] to-[#117F21] p-4 text-white transition hover:shadow-lg", focus)}
+            className={cn("group mt-3 flex items-center gap-4 rounded-2xl bg-gradient-to-r from-[#105D1D] to-[#14892A] p-4 text-white transition hover:shadow-lg", focus)}
           >
             <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#F4D27A] text-[#1A1206]">
               <Gavel className="h-5 w-5" aria-hidden="true" />

@@ -27,12 +27,12 @@ function DocText({ blocks, q }: { blocks: B[]; q: string }) {
       {blocks.map((b, i) => {
         if (b.t === "h") {
           const H = b.l <= 1 ? "h2" : "h3";
-          return <H key={i} id={slug(b.x, i)} className={cn("scroll-mt-48 font-bold text-[#0A2E10]", b.l <= 1 ? "mt-10 border-b border-gray-200 pb-2 text-2xl" : "mt-7 text-lg")}><Mark text={b.x} q={q} /></H>;
+          return <H key={i} id={slug(b.x, i)} className={cn("scroll-mt-48 font-bold text-[#164D20]", b.l <= 1 ? "mt-10 border-b border-gray-200 pb-2 text-2xl" : "mt-7 text-lg")}><Mark text={b.x} q={q} /></H>;
         }
         if (b.t === "table") {
           return (
             <figure key={i} className="my-6 overflow-hidden rounded-2xl border border-gray-200">
-              {b.cap && <figcaption className="bg-[#F4FAF3] px-4 py-2 text-sm font-semibold text-[#0A4A13]">{b.cap}</figcaption>}
+              {b.cap && <figcaption className="bg-[#F4FAF3] px-4 py-2 text-sm font-semibold text-[#105D1D]">{b.cap}</figcaption>}
               <div className="overflow-x-auto">
                 <table className="w-full min-w-[480px] text-left text-sm">
                   <thead className="bg-gray-50"><tr>{b.head.map((h, k) => <th key={k} scope="col" className="px-3 py-2.5 font-semibold text-gray-700">{h}</th>)}</tr></thead>
@@ -61,9 +61,9 @@ function Related({ title, docs }: { title: string; docs: RegDoc[] }) {
       <ul className="mt-2 space-y-2">
         {docs.map((d) => (
           <li key={d.id}>
-            <Link to={`/regulations/doc/${d.id}`} className={cn("group flex items-start gap-3 rounded-2xl border border-gray-200 bg-white p-3 text-sm transition hover:border-[#117F21]/40", ring)}>
+            <Link to={`/regulations/doc/${d.id}`} className={cn("group flex items-start gap-3 rounded-2xl border border-gray-200 bg-white p-3 text-sm transition hover:border-[#14892A]/40", ring)}>
               <span aria-hidden="true" className={cn("mt-1.5 h-2 w-2 shrink-0 rounded-full", typeStyle[d.type].dot)} />
-              <span className="flex-1"><span className="block font-semibold text-[#0A2E10] group-hover:text-[#117F21]">{d.title}</span><span className="text-xs text-gray-500">{d.type} · {fmtDate(d.date)}</span></span>
+              <span className="flex-1"><span className="block font-semibold text-[#164D20] group-hover:text-[#117F21]">{d.title}</span><span className="text-xs text-gray-500">{d.type} · {fmtDate(d.date)}</span></span>
               {webText[d.id] && <span className="rounded-full bg-[#E8F5E9] px-2 py-0.5 text-[10px] font-bold uppercase text-[#117F21]">Web</span>}
             </Link>
           </li>
@@ -79,9 +79,9 @@ export default function RegDocPage({ id }: { id: string }) {
     return (
       <div className="mx-auto max-w-xl px-4 py-24 text-center">
         <Scale className="mx-auto h-12 w-12 text-[#117F21]" aria-hidden="true" />
-        <h1 className="mt-4 text-3xl font-bold text-[#0A2E10]">We can’t find that document</h1>
+        <h1 className="mt-4 text-3xl font-bold text-[#164D20]">We can’t find that document</h1>
         <p className="mt-2 text-gray-600">It may have been renamed or withdrawn.</p>
-        <Link to="/regulations#library" className={cn("mt-6 inline-flex min-h-12 items-center gap-2 rounded-xl bg-[#117F21] px-6 font-semibold text-white", ring)}>Search the library <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
+        <Link to="/regulations#library" className={cn("mt-6 inline-flex min-h-12 items-center gap-2 rounded-xl bg-[#14892A] px-6 font-semibold text-white", ring)}>Search the library <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
       </div>
     );
   }
@@ -128,7 +128,7 @@ function Doc({ d }: { d: RegDoc }) {
         ]}
         actions={<>
           <PrimaryBtn href={d.pdf} external><Download className="h-4 w-4" aria-hidden="true" /> Signed PDF</PrimaryBtn>
-          {has && <button type="button" onClick={() => { setTab("read"); document.getElementById("doc-body")?.scrollIntoView({ behavior: "smooth" }); }} className={cn("inline-flex min-h-12 items-center gap-2 rounded-xl bg-white px-5 font-semibold text-[#0A4A13] ring-1 ring-black/10 hover:ring-[#117F21]", ring)}><BookOpenText className="h-4 w-4" aria-hidden="true" /> Read online</button>}
+          {has && <button type="button" onClick={() => { setTab("read"); document.getElementById("doc-body")?.scrollIntoView({ behavior: "smooth" }); }} className={cn("inline-flex min-h-12 items-center gap-2 rounded-xl bg-white px-5 font-semibold text-[#105D1D] ring-1 ring-black/10 hover:ring-[#14892A]", ring)}><BookOpenText className="h-4 w-4" aria-hidden="true" /> Read online</button>}
         </>}
       />
 
@@ -146,7 +146,7 @@ function Doc({ d }: { d: RegDoc }) {
           <div role="tablist" aria-label="Document views" className="inline-flex rounded-2xl bg-white p-1 shadow-sm ring-1 ring-gray-200">
             {([["read", "Read online"], ["about", "Details and related"]] as const).map(([k, l]) => (
               <button key={k} role="tab" type="button" aria-selected={tab === k} disabled={k === "read" && !has} onClick={() => setTab(k)} className={cn("relative min-h-11 rounded-xl px-5 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-40", ring, tab === k ? "text-white" : "text-gray-600 hover:text-[#117F21]")}>
-                {tab === k && <motion.span layoutId="doc-tab" className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#0A4A13] to-[#117F21]" transition={{ type: "spring", stiffness: 400, damping: 32 }} />}
+                {tab === k && <motion.span layoutId="doc-tab" className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#105D1D] to-[#14892A]" transition={{ type: "spring", stiffness: 400, damping: 32 }} />}
                 <span className="relative">{l}</span>
               </button>
             ))}
@@ -163,7 +163,7 @@ function Doc({ d }: { d: RegDoc }) {
                   <label className="relative flex-1">
                     <span className="sr-only">Search this document</span>
                     <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" aria-hidden="true" />
-                    <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search this document" className="min-h-11 w-full rounded-xl border border-gray-300 pl-9 pr-10 focus:border-[#117F21] focus:outline-none focus:ring-4 focus:ring-[#117F21]/15" />
+                    <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search this document" className="min-h-11 w-full rounded-xl border border-gray-300 pl-9 pr-10 focus:border-[#14892A] focus:outline-none focus:ring-4 focus:ring-[#14892A]/15" />
                     {q && <button type="button" onClick={() => setQ("")} aria-label="Clear search" className={cn("absolute right-1 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full hover:bg-gray-100", ring)}><X className="h-4 w-4" aria-hidden="true" /></button>}
                   </label>
                   <span className="text-sm text-gray-600 sm:w-36" aria-live="polite">{hits === null ? "" : `${hits} match${hits === 1 ? "" : "es"}`}</span>
@@ -189,7 +189,7 @@ function Doc({ d }: { d: RegDoc }) {
                     return (
                       <div key={k as string} className="flex gap-3 bg-white p-5">
                         <I className="mt-0.5 h-5 w-5 shrink-0 text-[#117F21]" aria-hidden="true" />
-                        <div><dt className="text-xs font-semibold uppercase tracking-wider text-gray-500">{k as string}</dt><dd className="mt-0.5 font-semibold text-[#0A2E10]">{v as string}</dd></div>
+                        <div><dt className="text-xs font-semibold uppercase tracking-wider text-gray-500">{k as string}</dt><dd className="mt-0.5 font-semibold text-[#164D20]">{v as string}</dd></div>
                       </div>
                     );
                   })}
@@ -209,7 +209,7 @@ function Doc({ d }: { d: RegDoc }) {
         </AnimatePresence>
 
         <div className="mx-auto max-w-7xl px-4 pb-16">
-          <Link to="/regulations#library" className={cn("group flex items-center justify-between rounded-3xl bg-[#0A4A13] p-6 font-semibold text-white", ring)}>
+          <Link to="/regulations#library" className={cn("group flex items-center justify-between rounded-3xl bg-[#105D1D] p-6 font-semibold text-white", ring)}>
             Back to the regulatory library
             <ArrowRight className="h-5 w-5 text-[#F4D27A] transition-transform group-hover:translate-x-1" aria-hidden="true" />
           </Link>

@@ -21,11 +21,11 @@ function Related({ label, docs, onOpen }: { label: string; docs: RegDoc[]; onOpe
             <button
               type="button"
               onClick={() => onOpen(d.id)}
-              className="group flex w-full items-start gap-3 rounded-xl p-3 text-left text-sm ring-1 ring-black/10 transition hover:ring-[#117F21]/40 hover:bg-[#F6F8F3] focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#FFD84D]"
+              className="group flex w-full items-start gap-3 rounded-xl p-3 text-left text-sm ring-1 ring-black/10 transition hover:ring-[#14892A]/40 hover:bg-[#F6F8F3] focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#FFD84D]"
             >
               <span aria-hidden="true" className={cn("mt-1.5 h-2 w-2 shrink-0 rounded-full", typeStyle[d.type].dot)} />
               <span className="flex-1">
-                <span className="block font-semibold text-[#0A2E10] group-hover:text-[#117F21]">{d.title}</span>
+                <span className="block font-semibold text-[#164D20] group-hover:text-[#117F21]">{d.title}</span>
                 <span className="mt-0.5 block font-mono text-xs text-gray-500">{d.type} · {fmtDate(d.date)}</span>
               </span>
             </button>
@@ -61,7 +61,7 @@ export default function DocDrawer({ id, onClose, onOpen }: { id: string | null; 
         {d && (
           <motion.div key={d.id} initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.35, ease }}>
             {/* Header */}
-            <div className="relative overflow-hidden bg-gradient-to-br from-[#0A4A13] to-[#117F21] px-6 pb-7 pt-8 text-white sm:px-8">
+            <div className="relative overflow-hidden bg-gradient-to-br from-[#105D1D] to-[#14892A] px-6 pb-7 pt-8 text-white sm:px-8">
               <Scale aria-hidden="true" className="absolute -right-10 -top-6 h-48 w-48 text-white/[0.05]" />
               <div className="flex flex-wrap items-center gap-2 pr-10 text-xs">
                 <span className={cn("rounded-full px-2.5 py-0.5 font-bold uppercase tracking-wider", typeStyle[d.type].chip)}>{d.type}</span>
@@ -72,7 +72,7 @@ export default function DocDrawer({ id, onClose, onOpen }: { id: string | null; 
                 Issued {fmtDate(d.date)} by the National Pension Commission
               </p>
               <div className="mt-6 flex flex-wrap gap-2">
-                <Link to={`/regulations/doc/${d.id}`} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-white px-4 text-sm font-semibold text-[#0A4A13] hover:bg-[#F4D27A] focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#FFD84D]">Open full page</Link>
+                <Link to={`/regulations/doc/${d.id}`} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-white px-4 text-sm font-semibold text-[#105D1D] hover:bg-[#F4D27A] focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#FFD84D]">Open full page</Link>
                 <a
                   href={d.pdf}
                   target="_blank"
@@ -128,7 +128,7 @@ export default function DocDrawer({ id, onClose, onOpen }: { id: string | null; 
                       <m.icon className="h-3.5 w-3.5" aria-hidden="true" />
                       {m.k}
                     </dt>
-                    <dd className={cn("mt-1 font-semibold text-[#0A2E10]", !m.v && "font-normal italic text-gray-400")}>
+                    <dd className={cn("mt-1 font-semibold text-[#164D20]", !m.v && "font-normal italic text-gray-400")}>
                       {m.v ?? "To be added from the CMS"}
                     </dd>
                   </div>

@@ -31,7 +31,7 @@ export default function HomeModern() {
     <MotionConfig reducedMotion="user">
       <CookieConsent />
       <PromoPopup />
-      <div className="bg-[#FBFCF9] text-[#0E2414]">
+      <div className="bg-[#FBFCF9] text-[#1C4226]">
         <Hero />
         <Circulars />
         <OnlineServices />

@@ -31,7 +31,7 @@ function printGuide(g: Guide) {
   const esc = (s: string) => s.replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" })[c]!);
   w.document.write(`<!doctype html><html lang="en"><head><title>${esc(g.title)} – PenCom</title>
   <style>body{font-family:Arial,Helvetica,sans-serif;max-width:680px;margin:32px auto;color:#111;line-height:1.5;font-size:16px}
-  h1{font-family:Verdana,sans-serif;font-size:24px;margin:0 0 4px}h2{font-family:Verdana,sans-serif;font-size:17px;margin-top:28px;border-bottom:2px solid #117F21;padding-bottom:4px}
+  h1{font-family:Verdana,sans-serif;font-size:24px;margin:0 0 4px}h2{font-family:Verdana,sans-serif;font-size:17px;margin-top:28px;border-bottom:2px solid #14892A;padding-bottom:4px}
   .muted{color:#555}li{margin:8px 0}.box{display:inline-block;width:14px;height:14px;border:2px solid #111;margin-right:10px;vertical-align:-2px}
   ol li::marker{font-weight:bold}footer{margin-top:40px;font-size:12px;color:#555;border-top:1px solid #ccc;padding-top:8px}</style></head><body>
   <p class="muted">National Pension Commission · Guide</p><h1>${esc(g.title)}</h1><p>${esc(g.intro)}</p>
@@ -90,7 +90,7 @@ function GuideDialog({ guide, onClose }: { guide: Guide | null; onClose: () => v
       <DialogContent className="max-h-[92vh] max-w-3xl gap-0 overflow-y-auto rounded-3xl border-0 p-0 sm:max-w-3xl [&>button:last-child]:right-4 [&>button:last-child]:top-4 [&>button:last-child]:flex [&>button:last-child]:h-10 [&>button:last-child]:w-10 [&>button:last-child]:items-center [&>button:last-child]:justify-center [&>button:last-child]:rounded-full [&>button:last-child]:bg-white/15 [&>button:last-child]:text-white [&>button:last-child]:opacity-100">
         {guide && (
           <>
-            <div className="relative overflow-hidden bg-gradient-to-br from-[#0A4A13] via-[#0A4A13] to-[#117F21] px-6 pb-7 pt-8 text-white sm:px-9">
+            <div className="relative overflow-hidden bg-gradient-to-br from-[#105D1D] via-[#105D1D] to-[#14892A] px-6 pb-7 pt-8 text-white sm:px-9">
               <Icon aria-hidden="true" className="absolute -right-6 -top-6 h-44 w-44 text-white/[0.06]" />
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#F4D27A]">Guide · {guide.audience}</p>
               <DialogTitle className="mt-2 pr-10 text-2xl font-bold leading-tight text-white sm:text-3xl">{guide.title}</DialogTitle>
@@ -128,16 +128,16 @@ function GuideDialog({ guide, onClose }: { guide: Guide | null; onClose: () => v
             <div className={cn("grid grid-cols-1 gap-8 px-6 py-8 sm:px-9 md:grid-cols-[1fr_1.3fr]", textSizes[size])}>
               {/* Checklist */}
               <div>
-                <h3 className="font-bold text-[#0A2E10]">What you need</h3>
+                <h3 className="font-bold text-[#164D20]">What you need</h3>
                 <ul className="mt-3 space-y-2">
                   {guide.needs.map((n, i) => (
                     <li key={n}>
-                      <label className={cn("flex cursor-pointer items-start gap-3 rounded-xl border p-3 transition", have[i] ? "border-[#117F21]/40 bg-[#F4FAF3]" : "border-gray-200 hover:border-[#117F21]/30")}>
+                      <label className={cn("flex cursor-pointer items-start gap-3 rounded-xl border p-3 transition", have[i] ? "border-[#14892A]/40 bg-[#F4FAF3]" : "border-gray-200 hover:border-[#14892A]/30")}>
                         <input type="checkbox" checked={!!have[i]} onChange={() => setHave((h) => h.map((v, j) => (j === i ? !v : v)))} className="peer sr-only" />
-                        <span aria-hidden="true" className={cn("mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-md border-2 transition peer-focus-visible:outline peer-focus-visible:outline-[3px] peer-focus-visible:outline-[#FFD84D]", have[i] ? "border-[#117F21] bg-[#117F21] text-white" : "border-gray-300")}>
+                        <span aria-hidden="true" className={cn("mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-md border-2 transition peer-focus-visible:outline peer-focus-visible:outline-[3px] peer-focus-visible:outline-[#FFD84D]", have[i] ? "border-[#14892A] bg-[#14892A] text-white" : "border-gray-300")}>
                           {have[i] && <Check className="h-3.5 w-3.5" strokeWidth={3} />}
                         </span>
-                        <span className={cn("text-gray-700", have[i] && "text-gray-500 line-through decoration-[#117F21]/50")}>{n}</span>
+                        <span className={cn("text-gray-700", have[i] && "text-gray-500 line-through decoration-[#14892A]/50")}>{n}</span>
                       </label>
                     </li>
                   ))}
@@ -147,13 +147,13 @@ function GuideDialog({ guide, onClose }: { guide: Guide | null; onClose: () => v
 
               {/* Stepper */}
               <div>
-                <h3 className="font-bold text-[#0A2E10]">Steps</h3>
+                <h3 className="font-bold text-[#164D20]">Steps</h3>
                 <ol className="mt-3 flex gap-2" aria-label="Progress">
                   {guide.steps.map((st, i) => (
                     <li key={st.title} className="flex-1">
                       <button type="button" onClick={() => setStep(i)} aria-current={i === step ? "step" : undefined} aria-label={`Step ${i + 1}: ${st.title}`} className="group block w-full py-2 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#FFD84D]">
                         <span className="block h-1.5 overflow-hidden rounded-full bg-gray-200">
-                          <motion.span className="block h-full bg-[#117F21]" animate={{ width: i <= step ? "100%" : "0%" }} transition={{ duration: 0.4, ease }} />
+                          <motion.span className="block h-full bg-[#14892A]" animate={{ width: i <= step ? "100%" : "0%" }} transition={{ duration: 0.4, ease }} />
                         </span>
                       </button>
                     </li>
@@ -163,7 +163,7 @@ function GuideDialog({ guide, onClose }: { guide: Guide | null; onClose: () => v
                   <AnimatePresence mode="wait" initial={false}>
                     <motion.div key={step} initial={{ opacity: 0, x: reduce ? 0 : 24 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: reduce ? 0 : -24 }} transition={{ duration: 0.25, ease }}>
                       <p className="font-mono text-sm text-[#9A6F06]">Step {step + 1} of {guide.steps.length}</p>
-                      <p className="mt-1 text-[1.35em] font-bold leading-snug text-[#0A2E10]">{s?.title}</p>
+                      <p className="mt-1 text-[1.35em] font-bold leading-snug text-[#164D20]">{s?.title}</p>
                       <p className="mt-2 leading-relaxed text-gray-700">{s?.body}</p>
                     </motion.div>
                   </AnimatePresence>
@@ -173,7 +173,7 @@ function GuideDialog({ guide, onClose }: { guide: Guide | null; onClose: () => v
                     <ChevronLeft className="h-4 w-4" aria-hidden="true" /> Back
                   </button>
                   {step < guide.steps.length - 1 ? (
-                    <button type="button" onClick={() => setStep((x) => x + 1)} className="inline-flex min-h-11 items-center gap-1 rounded-xl bg-[#117F21] px-4 text-sm font-semibold text-white hover:bg-[#0A4A13]">
+                    <button type="button" onClick={() => setStep((x) => x + 1)} className="inline-flex min-h-11 items-center gap-1 rounded-xl bg-[#14892A] px-4 text-sm font-semibold text-white hover:bg-[#105D1D]">
                       Next step <ChevronRight className="h-4 w-4" aria-hidden="true" />
                     </button>
                   ) : (
@@ -212,16 +212,16 @@ export default function Guides({ openId, setOpenId }: { openId: string | null; s
                   <button
                     type="button"
                     onClick={() => setOpenId(g.id)}
-                    className="group relative flex h-full w-full flex-col overflow-hidden rounded-3xl ring-1 ring-black/10/80 bg-white p-7 text-left transition-shadow duration-300 hover:shadow-[0_30px_60px_-30px_rgba(10,74,19,0.5)] focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-[#FFD84D]"
+                    className="group relative flex h-full w-full flex-col overflow-hidden rounded-3xl ring-1 ring-black/10/80 bg-white p-7 text-left transition-shadow duration-300 hover:shadow-[0_30px_60px_-30px_rgba(16,93,29,0.5)] focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-[#FFD84D]"
                   >
-                    <span aria-hidden="true" className="absolute inset-x-0 bottom-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-[#117F21] to-[#CB9615] transition-transform duration-500 group-hover:scale-x-100" />
+                    <span aria-hidden="true" className="absolute inset-x-0 bottom-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-[#14892A] to-[#CB9615] transition-transform duration-500 group-hover:scale-x-100" />
                     <span className="flex items-start justify-between">
-                      <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#E8F5E9] text-[#117F21] transition duration-500 group-hover:rotate-[-6deg] group-hover:bg-[#117F21] group-hover:text-white">
+                      <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#E8F5E9] text-[#117F21] transition duration-500 group-hover:rotate-[-6deg] group-hover:bg-[#14892A] group-hover:text-white">
                         <Icon className="h-6 w-6" aria-hidden="true" />
                       </span>
                       <span className="rounded-full bg-[#FFF8E1] px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-[#7A5604]">{g.audience}</span>
                     </span>
-                    <span className="mt-6 block text-xl font-bold leading-snug text-[#0A2E10] group-hover:text-[#117F21]">{g.title}</span>
+                    <span className="mt-6 block text-xl font-bold leading-snug text-[#164D20] group-hover:text-[#117F21]">{g.title}</span>
                     <span className="mt-2 block text-sm leading-relaxed text-gray-600">{g.intro}</span>
                     <span className="mt-auto flex items-center justify-between pt-6 text-sm">
                       <span className="flex items-center gap-3 text-gray-500">

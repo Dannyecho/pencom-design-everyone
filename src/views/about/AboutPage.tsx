@@ -51,7 +51,7 @@ export default function AboutPage() {
 
   return (
     <MotionConfig reducedMotion="user">
-      <div className="bg-[#FBFCF9] text-[#0E2414]">
+      <div className="bg-[#FBFCF9] text-[#1C4226]">
         <Hero />
         <SectionNav />
         <Overview />
@@ -85,7 +85,7 @@ function Hero() {
           transition={{ duration: 18, repeat: 2, ease: "easeInOut" }}
         />
         <div className="absolute -right-32 top-24 h-[28rem] w-[28rem] rounded-full bg-[#F8E2A8]/70 blur-[110px]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(10,74,19,0.08)_1px,transparent_0)] [background-size:28px_28px] [mask-image:linear-gradient(to_bottom,black,transparent_85%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(16,93,29,0.08)_1px,transparent_0)] [background-size:28px_28px] [mask-image:linear-gradient(to_bottom,black,transparent_85%)]" />
       </div>
 
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-4 pb-16 pt-8 sm:pt-10 lg:grid-cols-12 lg:pb-20">
@@ -93,17 +93,17 @@ function Hero() {
           <nav aria-label="Breadcrumb">
             <ol className="flex flex-wrap items-center gap-2 text-sm text-gray-600">
               <li>
-                <Link to="/" className={cn("rounded hover:text-[#0A4A13] hover:underline", focus)}>
+                <Link to="/" className={cn("rounded hover:text-[#105D1D] hover:underline", focus)}>
                   Home
                 </Link>
               </li>
               <li aria-hidden="true">/</li>
-              <li aria-current="page" className="font-semibold text-[#0E2414]">
+              <li aria-current="page" className="font-semibold text-[#1C4226]">
                 About PenCom
               </li>
             </ol>
           </nav>
-          <motion.p initial={{ opacity: 0, y: reduce ? 0 : 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease }} className="mt-6 inline-flex items-center gap-2 rounded-full bg-white/80 px-3.5 py-1.5 text-sm font-semibold text-[#0A4A13] shadow-sm ring-1 ring-black/5 backdrop-blur">
+          <motion.p initial={{ opacity: 0, y: reduce ? 0 : 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease }} className="mt-6 inline-flex items-center gap-2 rounded-full bg-white/80 px-3.5 py-1.5 text-sm font-semibold text-[#105D1D] shadow-sm ring-1 ring-black/5 backdrop-blur">
             <Landmark className="h-4 w-4" aria-hidden="true" />
             About the Commission
           </motion.p>
@@ -128,11 +128,11 @@ function Hero() {
             The National Pension Commission licenses and supervises every pension operator in Nigeria, so that what workers save is invested safely and paid when they retire. Established in 2004, we now work under the Pension Reform Act 2014.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <button type="button" onClick={() => scrollToId("history", !reduce)} className={cn("group inline-flex min-h-12 items-center gap-2 rounded-xl bg-[#0A4A13] px-5 font-semibold text-white transition hover:bg-[#117F21]", focus)}>
+            <button type="button" onClick={() => scrollToId("history", !reduce)} className={cn("group inline-flex min-h-12 items-center gap-2 rounded-xl bg-[#105D1D] px-5 font-semibold text-white transition hover:bg-[#14892A]", focus)}>
               Explore our history
               <ArrowDown className="h-4 w-4 transition-transform group-hover:translate-y-0.5" aria-hidden="true" />
             </button>
-            <button type="button" onClick={() => scrollToId("structure", !reduce)} className={cn("group inline-flex min-h-12 items-center gap-2 rounded-xl bg-white px-5 font-semibold text-[#0A4A13] ring-1 ring-black/10 transition hover:bg-[#E8F5E9]", focus)}>
+            <button type="button" onClick={() => scrollToId("structure", !reduce)} className={cn("group inline-flex min-h-12 items-center gap-2 rounded-xl bg-white px-5 font-semibold text-[#105D1D] ring-1 ring-black/10 transition hover:bg-[#E8F5E9]", focus)}>
               How we are organised
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
             </button>
@@ -145,8 +145,8 @@ function Hero() {
           transition={{ duration: 0.9, delay: 0.15, ease }}
           className="relative lg:col-span-6"
         >
-          <div aria-hidden="true" className="absolute -inset-3 -z-10 translate-x-3 translate-y-3 rounded-[2.2rem] bg-[#0A4A13]" />
-          <div className="relative h-[28rem] overflow-hidden rounded-[2rem] bg-[#0E2414] shadow-[0_40px_80px_-40px_rgba(10,46,16,0.7)] sm:h-[32rem]">
+          <div aria-hidden="true" className="absolute -inset-3 -z-10 translate-x-3 translate-y-3 rounded-[2.2rem] bg-[#105D1D]" />
+          <div className="relative h-[28rem] overflow-hidden rounded-[2rem] bg-[#1C4226] shadow-[0_40px_80px_-40px_rgba(22,77,32,0.7)] sm:h-[32rem]">
             <img
               src="/images/site/board-meeting-1920.webp"
               srcSet="/images/site/board-meeting-960.webp 960w, /images/site/board-meeting-1920.webp 1920w"
@@ -156,14 +156,14 @@ function Hero() {
               fetchPriority="high"
             />
             <div aria-hidden="true" className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/45 to-transparent" />
-            <p className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-[#FFD84D] px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-[#04140A] shadow">
+            <p className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-[#FFD84D] px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-[#12331C] shadow">
               Since 2004
             </p>
             <dl className="absolute inset-x-3 bottom-3 grid grid-cols-3 divide-x divide-black/5 rounded-2xl bg-white/95 shadow-xl backdrop-blur sm:inset-x-4 sm:bottom-4">
               {heroStats.map((s) => (
                 <div key={s.label} className="px-3 py-3.5 sm:px-5 sm:py-4">
                   <dt className="text-xs font-semibold text-gray-600 sm:text-sm">{s.label}</dt>
-                  <dd className="mt-0.5 font-mono text-xl font-bold text-[#0E2414] sm:text-2xl">{s.value}</dd>
+                  <dd className="mt-0.5 font-mono text-xl font-bold text-[#1C4226] sm:text-2xl">{s.value}</dd>
                   <dd className="text-[11px] text-gray-500">{s.note}</dd>
                 </div>
               ))}
@@ -209,7 +209,7 @@ function SectionNav() {
   return (
     <nav aria-label="On this page" className="sticky top-[92px] z-30 px-4 py-3">
       <div className="mx-auto max-w-7xl">
-        <ul className="flex gap-1 overflow-x-auto rounded-2xl bg-white/85 p-1.5 shadow-[0_18px_40px_-30px_rgba(10,46,16,0.6)] ring-1 ring-black/5 backdrop-blur-xl [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <ul className="flex gap-1 overflow-x-auto rounded-2xl bg-white/85 p-1.5 shadow-[0_18px_40px_-30px_rgba(22,77,32,0.6)] ring-1 ring-black/5 backdrop-blur-xl [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {onThisPage.map((s) => {
             const on = active === s.id;
             return (
@@ -225,7 +225,7 @@ function SectionNav() {
                   aria-current={on ? "location" : undefined}
                   className={cn("relative flex min-h-10 items-center rounded-xl px-4 text-sm font-semibold transition", on ? "text-white" : "text-gray-700 hover:bg-[#F1F5EF]", focus)}
                 >
-                  {on && <motion.span layoutId="about-nav-pill" className="absolute inset-0 rounded-xl bg-[#0A4A13]" transition={{ type: "spring", stiffness: 380, damping: 32 }} />}
+                  {on && <motion.span layoutId="about-nav-pill" className="absolute inset-0 rounded-xl bg-[#105D1D]" transition={{ type: "spring", stiffness: 380, damping: 32 }} />}
                   <span className="relative">{s.label}</span>
                 </a>
               </li>

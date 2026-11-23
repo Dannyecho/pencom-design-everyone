@@ -53,16 +53,16 @@ function Cover3D() {
             <span className="absolute inset-y-0 left-0 w-3 bg-gradient-to-r from-black/40 to-transparent" />
           </div>
           {/* spine */}
-          <div className="absolute left-0 top-0 flex items-center justify-center bg-gradient-to-r from-[#021A06] to-[#0A4A13]" style={{ width: D, height: H, transform: `rotateY(-90deg) translateZ(${D / 2}px)`, transformOrigin: "center" }}>
+          <div className="absolute left-0 top-0 flex items-center justify-center bg-gradient-to-r from-[#0D3414] to-[#105D1D]" style={{ width: D, height: H, transform: `rotateY(-90deg) translateZ(${D / 2}px)`, transformOrigin: "center" }}>
             <span className="-rotate-90 whitespace-nowrap text-[9px] font-bold uppercase tracking-[0.3em] text-[#F4D27A]">PenCom Chronicles · 01</span>
           </div>
           {/* page block */}
           <div className="absolute right-0 top-[2px] bg-[repeating-linear-gradient(90deg,#fff,#fff_1px,#e6e0cf_1px,#e6e0cf_2px)]" style={{ width: D - 2, height: H - 4, transform: `rotateY(90deg) translateZ(${W - D / 2}px)`, transformOrigin: "left center", left: 0 }} />
           {/* back */}
-          <div className="absolute inset-0 rounded-l-md bg-[#0A4A13]" style={{ transform: `translateZ(-${D / 2}px) rotateY(180deg)` }} />
+          <div className="absolute inset-0 rounded-l-md bg-[#105D1D]" style={{ transform: `translateZ(-${D / 2}px) rotateY(180deg)` }} />
         </motion.div>
       </motion.div>
-      <span aria-hidden="true" className="absolute bottom-6 left-1/2 h-8 w-64 -translate-x-1/2 rounded-[50%] bg-[#0A4A13]/40 blur-2xl" />
+      <span aria-hidden="true" className="absolute bottom-6 left-1/2 h-8 w-64 -translate-x-1/2 rounded-[50%] bg-[#105D1D]/40 blur-2xl" />
       {/* floating sparkles */}
       {!reduce && [0, 1, 2, 3, 4].map((i) => (
         <motion.span key={i} aria-hidden="true" className="absolute h-1.5 w-1.5 rounded-full bg-[#F4D27A]" style={{ left: `${15 + i * 17}%`, top: `${20 + ((i * 37) % 60)}%` }} animate={{ y: [0, -24, 0], opacity: [0, 1, 0] }} transition={{ duration: 3 + i * 0.6, repeat: Infinity, delay: i * 0.7 }} />
@@ -93,9 +93,9 @@ export default function ChroniclesPage() {
 
   return (
     <MotionConfig reducedMotion="user">
-      <div className="bg-[#FBFCF9] text-[#0E2414]">
+      <div className="bg-[#FBFCF9] text-[#1C4226]">
       {/* Hero */}
-      <section aria-labelledby="mag-title" className="relative isolate overflow-hidden bg-[#F6F8F3] text-[#0E2414]">
+      <section aria-labelledby="mag-title" className="relative isolate overflow-hidden bg-[#F6F8F3] text-[#1C4226]">
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
           <motion.div
             className="absolute -left-40 -top-40 h-[34rem] w-[34rem] rounded-full bg-[#BFE3C4]/70 blur-[110px]"
@@ -103,21 +103,21 @@ export default function ChroniclesPage() {
             transition={{ duration: 18, repeat: 2, ease: "easeInOut" }}
           />
           <div className="absolute -right-32 top-24 h-[28rem] w-[28rem] rounded-full bg-[#F8E2A8]/70 blur-[110px]" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(10,74,19,0.08)_1px,transparent_0)] [background-size:28px_28px] [mask-image:linear-gradient(to_bottom,black,transparent_85%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(16,93,29,0.08)_1px,transparent_0)] [background-size:28px_28px] [mask-image:linear-gradient(to_bottom,black,transparent_85%)]" />
         </div>
         <div className="mx-auto max-w-7xl px-4 pb-10 pt-8 sm:pt-10">
           <nav aria-label="Breadcrumb">
             <ol className="flex flex-wrap items-center gap-2 text-sm text-gray-600">
-              <li><Link to="/" className={cn("rounded hover:text-[#0A4A13] hover:underline", focus)}>Home</Link></li>
+              <li><Link to="/" className={cn("rounded hover:text-[#105D1D] hover:underline", focus)}>Home</Link></li>
               <li aria-hidden="true">/</li>
-              <li><Link to="/resources#publications" className={cn("rounded hover:text-[#0A4A13] hover:underline", focus)}>Resources</Link></li>
+              <li><Link to="/resources#publications" className={cn("rounded hover:text-[#105D1D] hover:underline", focus)}>Resources</Link></li>
               <li aria-hidden="true">/</li>
-              <li aria-current="page" className="font-semibold text-[#0E2414]">PenCom Chronicles</li>
+              <li aria-current="page" className="font-semibold text-[#1C4226]">PenCom Chronicles</li>
             </ol>
           </nav>
           <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-12">
             <div className="lg:col-span-6">
-              <motion.p initial={{ opacity: 0, y: reduce ? 0 : 10 }} animate={{ opacity: 1, y: 0 }} className="mt-6 inline-flex items-center gap-2 rounded-full bg-white/80 px-3.5 py-1.5 text-sm font-semibold text-[#0A4A13] shadow-sm ring-1 ring-black/5 backdrop-blur">
+              <motion.p initial={{ opacity: 0, y: reduce ? 0 : 10 }} animate={{ opacity: 1, y: 0 }} className="mt-6 inline-flex items-center gap-2 rounded-full bg-white/80 px-3.5 py-1.5 text-sm font-semibold text-[#105D1D] shadow-sm ring-1 ring-black/5 backdrop-blur">
                 <Sparkles className="h-4 w-4 text-[#CB9615]" aria-hidden="true" /> New · Issue 01 · {issue.date}
               </motion.p>
               <h1 id="mag-title" data-no-translate className="mt-6 font-serif text-6xl font-bold leading-[0.95] tracking-tight sm:text-7xl lg:text-[5.5rem]">
@@ -134,10 +134,10 @@ export default function ChroniclesPage() {
                 The Commission’s magazine: news, interviews, industry updates, human-interest stories, features and commentaries on Nigeria’s pension system.
               </motion.p>
               <motion.div initial={{ opacity: 0, y: reduce ? 0 : 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.75, ease }} className="mt-8 flex flex-wrap gap-3">
-                <a href={issue.localPdf} target="_blank" rel="noopener noreferrer" className={cn("group inline-flex min-h-12 items-center gap-2 rounded-xl bg-[#0A4A13] px-6 font-semibold text-white shadow-[0_18px_40px_-20px_rgba(10,74,19,0.9)] transition hover:bg-[#117F21]", focus)}>
+                <a href={issue.localPdf} target="_blank" rel="noopener noreferrer" className={cn("group inline-flex min-h-12 items-center gap-2 rounded-xl bg-[#105D1D] px-6 font-semibold text-white shadow-[0_18px_40px_-20px_rgba(16,93,29,0.9)] transition hover:bg-[#14892A]", focus)}>
                   <BookOpen className="h-5 w-5" aria-hidden="true" /> Read the issue<span className="sr-only"> (PDF, opens in a new tab)</span>
                 </a>
-                <a href={issue.pdfUrl} target="_blank" rel="noopener noreferrer" className={cn("inline-flex min-h-12 items-center gap-2 rounded-xl bg-white px-6 font-semibold text-[#0A4A13] ring-1 ring-black/10 transition hover:ring-[#117F21]", focus)}>
+                <a href={issue.pdfUrl} target="_blank" rel="noopener noreferrer" className={cn("inline-flex min-h-12 items-center gap-2 rounded-xl bg-white px-6 font-semibold text-[#105D1D] ring-1 ring-black/10 transition hover:ring-[#14892A]", focus)}>
                   <Download className="h-5 w-5" aria-hidden="true" /> Download PDF<span className="sr-only"> (opens in a new tab)</span>
                 </a>
               </motion.div>
@@ -164,9 +164,9 @@ export default function ChroniclesPage() {
               return (
                 <motion.li key={s.k} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.55, delay: i * 0.07, ease }}>
                   <Tilt className="h-full">
-                    <Spotlight color="rgba(203,150,21,0.16)" className="group h-full rounded-3xl bg-white ring-1 ring-black/5 p-6 transition hover:shadow-[0_24px_50px_-28px_rgba(10,74,19,0.4)]">
-                      <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#E8F5E9] text-[#117F21] transition group-hover:rotate-6 group-hover:bg-[#117F21] group-hover:text-white"><Icon className="h-6 w-6" aria-hidden="true" /></span>
-                      <h3 className="mt-5 font-serif text-2xl font-bold text-[#0A2E10]">{s.k}</h3>
+                    <Spotlight color="rgba(203,150,21,0.16)" className="group h-full rounded-3xl bg-white ring-1 ring-black/5 p-6 transition hover:shadow-[0_24px_50px_-28px_rgba(16,93,29,0.4)]">
+                      <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#E8F5E9] text-[#117F21] transition group-hover:rotate-6 group-hover:bg-[#14892A] group-hover:text-white"><Icon className="h-6 w-6" aria-hidden="true" /></span>
+                      <h3 className="mt-5 font-serif text-2xl font-bold text-[#164D20]">{s.k}</h3>
                       <p className="mt-1 text-gray-600">{s.body}</p>
                     </Spotlight>
                   </Tilt>
@@ -178,7 +178,7 @@ export default function ChroniclesPage() {
       </section>
 
       {/* Launch */}
-      <section id="launch" aria-labelledby="launch-title" className="relative isolate scroll-mt-[160px] overflow-hidden bg-[#0A4A13] py-20 text-white sm:py-24">
+      <section id="launch" aria-labelledby="launch-title" className="relative isolate scroll-mt-[160px] overflow-hidden bg-[#105D1D] py-20 text-white sm:py-24">
         <div aria-hidden="true" className="absolute -right-40 top-0 -z-10 h-[460px] w-[460px] rounded-full bg-[#CB9615]/20 blur-[140px]" />
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-4 lg:grid-cols-12">
           <div className="lg:col-span-6">
@@ -229,7 +229,7 @@ export default function ChroniclesPage() {
                       <span className="pointer-events-none absolute left-0 top-0 block" style={{ width: 420, height: 594, transform: `scale(${192 / 420})`, transformOrigin: "top left" }}>{previewPages[0].node}</span>
                       <span className="absolute inset-y-0 left-0 w-2 bg-gradient-to-r from-black/40 to-transparent" />
                     </span>
-                    <span className="mt-4 block font-bold text-[#0A2E10] group-hover:text-[#117F21]">{s.label}</span>
+                    <span className="mt-4 block font-bold text-[#164D20] group-hover:text-[#117F21]">{s.label}</span>
                     <span className="block text-sm text-gray-500">{s.date} · Read now</span>
                   </a>
                 ) : (
@@ -280,7 +280,7 @@ function Subscribe() {
   return (
     <section id="subscribe" aria-labelledby="sub-title" className="scroll-mt-[160px] py-20 sm:py-24">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 lg:grid-cols-2">
-        <motion.div {...reveal} className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#0A4A13] to-[#117F21] p-8 text-white sm:p-10">
+        <motion.div {...reveal} className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#105D1D] to-[#14892A] p-8 text-white sm:p-10">
           <div aria-hidden="true" className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-[#F4D27A]/20 blur-3xl" />
           <Mail className="relative h-8 w-8 text-[#F4D27A]" aria-hidden="true" />
           <h2 id="sub-title" className="relative mt-5 text-3xl font-bold">Get new issues by email</h2>
@@ -288,7 +288,7 @@ function Subscribe() {
           <AnimatePresence mode="wait" initial={false}>
             {done ? (
               <motion.p key="ok" role="status" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="relative mt-6 flex items-center gap-3 rounded-2xl bg-white/15 p-4 font-semibold">
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#F4D27A] text-[#0A4A13]"><Check className="h-5 w-5" strokeWidth={3} aria-hidden="true" /></span>
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#F4D27A] text-[#105D1D]"><Check className="h-5 w-5" strokeWidth={3} aria-hidden="true" /></span>
                 Thank you. We’ll let you know when Issue 02 is out.
               </motion.p>
             ) : (
@@ -311,11 +311,11 @@ function Subscribe() {
 
         <motion.div {...reveal} transition={{ ...reveal.transition, delay: 0.1 }} className="relative overflow-hidden rounded-[2rem] border border-[#CB9615]/30 bg-gradient-to-br from-[#FFF8E1] to-white p-8 sm:p-10">
           <PenLine className="h-8 w-8 text-[#CB9615]" aria-hidden="true" />
-          <h2 className="mt-5 text-3xl font-bold text-[#0A2E10]">Share your story</h2>
+          <h2 className="mt-5 text-3xl font-bold text-[#164D20]">Share your story</h2>
           <p className="mt-2 text-gray-600">Every edition gives stakeholders space to share their views. Contributors, retirees, employers and operators can suggest a story or a commentary for the next issue.</p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <Link to="/connect#contact" className={cn("group inline-flex min-h-12 items-center gap-2 rounded-xl bg-[#117F21] px-5 font-semibold text-white hover:bg-[#0A4A13]", ring)}>Suggest a story <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" /></Link>
-            <Link to="/news" className={cn("inline-flex min-h-12 items-center gap-2 rounded-xl border border-gray-300 px-5 font-semibold text-gray-700 hover:border-[#117F21]", ring)}>Latest news</Link>
+            <Link to="/connect#contact" className={cn("group inline-flex min-h-12 items-center gap-2 rounded-xl bg-[#14892A] px-5 font-semibold text-white hover:bg-[#105D1D]", ring)}>Suggest a story <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" /></Link>
+            <Link to="/news" className={cn("inline-flex min-h-12 items-center gap-2 rounded-xl border border-gray-300 px-5 font-semibold text-gray-700 hover:border-[#14892A]", ring)}>Latest news</Link>
           </div>
         </motion.div>
       </div>

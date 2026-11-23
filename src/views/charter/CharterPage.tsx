@@ -71,7 +71,7 @@ function printChecklist(s: Std) {
   const esc = (x: string) => x.replace(/&/g, "&amp;").replace(/</g, "&lt;");
   const items = splitReq(s.req).map((r) => `<li><span class="box"></span>${esc(r)}</li>`).join("");
   w.document.write(
-    `<!doctype html><title>${esc(s.service)} – checklist</title><style>body{font:16px/1.6 Arial;margin:40px;color:#111}h1{font:bold 22px Verdana;color:#0A4A13;margin:0 0 4px}p{margin:0 0 16px;color:#444}ul{list-style:none;padding:0}li{display:flex;gap:12px;margin:0 0 12px}.box{flex:none;width:18px;height:18px;border:2px solid #117F21;border-radius:4px;margin-top:3px}footer{margin-top:32px;font-size:12px;color:#666;border-top:1px solid #ddd;padding-top:8px}</style><h1>${esc(s.service)}</h1><p>${esc(s.dept)} · Service standard: ${esc(s.time || "see charter")}</p><ul>${items}</ul><footer>National Pension Commission · Service Charter (revised May 2026) · pencom.gov.ng</footer>`,
+    `<!doctype html><title>${esc(s.service)} – checklist</title><style>body{font:16px/1.6 Arial;margin:40px;color:#111}h1{font:bold 22px Verdana;color:#105D1D;margin:0 0 4px}p{margin:0 0 16px;color:#444}ul{list-style:none;padding:0}li{display:flex;gap:12px;margin:0 0 12px}.box{flex:none;width:18px;height:18px;border:2px solid #14892A;border-radius:4px;margin-top:3px}footer{margin-top:32px;font-size:12px;color:#666;border-top:1px solid #ddd;padding-top:8px}</style><h1>${esc(s.service)}</h1><p>${esc(s.dept)} · Service standard: ${esc(s.time || "see charter")}</p><ul>${items}</ul><footer>National Pension Commission · Service Charter (revised May 2026) · pencom.gov.ng</footer>`,
   );
   w.document.close();
   w.focus();
@@ -98,8 +98,8 @@ export default function CharterPage() {
   return (
     <MotionConfig reducedMotion="user">
       {/* reading progress, just under the header */}
-      <motion.div aria-hidden="true" style={{ scaleX: progress }} className="fixed inset-x-0 top-[92px] z-40 h-1 origin-left bg-gradient-to-r from-[#117F21] to-[#CB9615]" />
-      <div className="bg-[#FBFCF9] text-[#0E2414]">
+      <motion.div aria-hidden="true" style={{ scaleX: progress }} className="fixed inset-x-0 top-[92px] z-40 h-1 origin-left bg-gradient-to-r from-[#14892A] to-[#CB9615]" />
+      <div className="bg-[#FBFCF9] text-[#1C4226]">
         <Hero />
         <SectionNav sections={onThisPage} pillId="charter-nav-pill" />
         <Standards />
@@ -125,12 +125,12 @@ function Hero() {
       intro="What you can expect from the Commission: how quickly we deliver each service, the documents you need, how to complain, and what we expect from you."
       actions={
         <div className="flex flex-wrap gap-3">
-          <a href={PDF} target="_blank" rel="noopener noreferrer" className={cn("group inline-flex min-h-12 items-center gap-2 rounded-xl bg-[#0A4A13] px-5 font-semibold text-white transition hover:bg-[#117F21]", focus)}>
+          <a href={PDF} target="_blank" rel="noopener noreferrer" className={cn("group inline-flex min-h-12 items-center gap-2 rounded-xl bg-[#105D1D] px-5 font-semibold text-white transition hover:bg-[#14892A]", focus)}>
             <Download className="h-4 w-4" aria-hidden="true" />
             Signed PDF
             <span className="sr-only">(opens in a new tab)</span>
           </a>
-          <Link to="/connect" className={cn("inline-flex min-h-12 items-center gap-2 rounded-xl bg-white px-5 font-semibold text-[#0A4A13] ring-1 ring-black/10 transition hover:bg-[#E8F5E9]", focus)}>
+          <Link to="/connect" className={cn("inline-flex min-h-12 items-center gap-2 rounded-xl bg-white px-5 font-semibold text-[#105D1D] ring-1 ring-black/10 transition hover:bg-[#E8F5E9]", focus)}>
             <MessageSquareWarning className="h-4 w-4" aria-hidden="true" />
             Make a complaint
           </Link>
@@ -138,14 +138,14 @@ function Hero() {
       }
       aside={
         <FramedPanel className="p-6 sm:p-7">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#0A4A13]">At a glance</p>
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#105D1D]">At a glance</p>
           <dl className="mt-4 grid grid-cols-3 gap-3">
             {[
               ["2", "working days", "for most benefit approvals"],
               ["3–5", "working days", "to resolve a complaint"],
               ["72", "hours", "to issue a PCC"],
             ].map(([v, u, l]) => (
-              <div key={l} className="rounded-2xl bg-[#0A4A13] p-4 text-white">
+              <div key={l} className="rounded-2xl bg-[#105D1D] p-4 text-white">
                 <dt className="sr-only">{l}</dt>
                 <dd>
                   <span className="block font-mono text-3xl font-bold text-[#F4D27A]">{v}</span>
@@ -179,9 +179,9 @@ function Hero() {
 function StandardCard({ s, q, open, onToggle }: { s: Std; q: string; open: boolean; onToggle: () => void }) {
   const reqs = splitReq(s.req);
   return (
-    <div className={cn("overflow-hidden rounded-3xl bg-white ring-1 transition", open ? "ring-[#117F21] shadow-[0_24px_50px_-34px_rgba(10,46,16,0.6)]" : "ring-black/10")}>
+    <div className={cn("overflow-hidden rounded-3xl bg-white ring-1 transition", open ? "ring-[#14892A] shadow-[0_24px_50px_-34px_rgba(22,77,32,0.6)]" : "ring-black/10")}>
       <button type="button" onClick={onToggle} aria-expanded={open} className={cn("group flex w-full items-start gap-4 p-5 text-left transition hover:bg-[#F6F8F3] sm:p-6", focus)}>
-        <span className="flex h-14 w-14 shrink-0 flex-col items-center justify-center rounded-2xl bg-[#0A4A13] text-white">
+        <span className="flex h-14 w-14 shrink-0 flex-col items-center justify-center rounded-2xl bg-[#105D1D] text-white">
           <Clock className="h-4 w-4 text-[#F4D27A]" aria-hidden="true" />
           <span className="mt-0.5 font-mono text-xs font-bold leading-none">{badge(s.time)}</span>
         </span>
@@ -197,7 +197,7 @@ function StandardCard({ s, q, open, onToggle }: { s: Std; q: string; open: boole
             </span>
           )}
         </span>
-        <span className={cn("flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition", open ? "rotate-180 bg-[#0A4A13] text-white" : "bg-gray-100 text-gray-600")}>
+        <span className={cn("flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition", open ? "rotate-180 bg-[#105D1D] text-white" : "bg-gray-100 text-gray-600")}>
           <ChevronDown className="h-5 w-5" aria-hidden="true" />
         </span>
       </button>
@@ -219,7 +219,7 @@ function StandardCard({ s, q, open, onToggle }: { s: Std; q: string; open: boole
                 ))}
               </ul>
               <div className="mt-5 flex flex-wrap gap-2">
-                <button type="button" onClick={() => printChecklist(s)} className={cn("inline-flex min-h-11 items-center gap-2 rounded-xl bg-[#0A4A13] px-4 text-sm font-semibold text-white hover:bg-[#117F21]", focus)}>
+                <button type="button" onClick={() => printChecklist(s)} className={cn("inline-flex min-h-11 items-center gap-2 rounded-xl bg-[#105D1D] px-4 text-sm font-semibold text-white hover:bg-[#14892A]", focus)}>
                   <Printer className="h-4 w-4" aria-hidden="true" />
                   Print this checklist
                 </button>
@@ -254,7 +254,7 @@ function Standards() {
       <div className="mx-auto max-w-7xl">
         <Headline id="std-title" n="01" kicker="Service standards" title="How long each service takes" mark="each service" intro="Find a service to see its timeline and the documents you need. Print the list and take it with you." />
         <div className="mt-8 flex flex-col gap-2 rounded-3xl bg-white p-2 ring-1 ring-black/10 sm:flex-row">
-          <label className="flex min-h-12 flex-1 items-center gap-3 rounded-2xl bg-[#F6F8F3] px-4 ring-1 ring-black/5 focus-within:ring-2 focus-within:ring-[#117F21]">
+          <label className="flex min-h-12 flex-1 items-center gap-3 rounded-2xl bg-[#F6F8F3] px-4 ring-1 ring-black/5 focus-within:ring-2 focus-within:ring-[#14892A]">
             <Search className="h-5 w-5 shrink-0 text-[#117F21]" aria-hidden="true" />
             <span className="sr-only">Find a service</span>
             <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Try “death benefits”, “25%”, “mortgage”, “PCC”" className="w-full bg-transparent focus:outline-none" />
@@ -290,14 +290,14 @@ function Standards() {
         {list.length === 0 && (
           <div className="mt-4 rounded-3xl bg-white px-6 py-12 text-center ring-1 ring-black/10">
             <p className="font-bold">No service matches</p>
-            <button type="button" onClick={() => { setQ(""); setDept("All"); }} className={cn("mt-4 inline-flex min-h-11 items-center rounded-xl bg-[#0A4A13] px-5 font-semibold text-white hover:bg-[#117F21]", focus)}>
+            <button type="button" onClick={() => { setQ(""); setDept("All"); }} className={cn("mt-4 inline-flex min-h-11 items-center rounded-xl bg-[#105D1D] px-5 font-semibold text-white hover:bg-[#14892A]", focus)}>
               Clear search
             </button>
           </div>
         )}
         {!showAll && !filtered && list.length > 8 && (
           <div className="mt-6 text-center">
-            <button type="button" onClick={() => setShowAll(true)} className={cn("group inline-flex min-h-12 items-center gap-2 rounded-full bg-white px-6 font-semibold text-[#0A4A13] shadow-sm ring-1 ring-black/10 transition hover:bg-[#0A4A13] hover:text-white", focus)}>
+            <button type="button" onClick={() => setShowAll(true)} className={cn("group inline-flex min-h-12 items-center gap-2 rounded-full bg-white px-6 font-semibold text-[#105D1D] shadow-sm ring-1 ring-black/10 transition hover:bg-[#105D1D] hover:text-white", focus)}>
               Show all {list.length} services
               <ChevronDown className="h-4 w-4 transition-transform group-hover:translate-y-0.5" aria-hidden="true" />
             </button>
@@ -322,11 +322,11 @@ function Complaints() {
       <div className="mx-auto max-w-7xl">
         <Headline id="cmp-title" n="02" kicker="If something goes wrong" title="Complaints and disputes" mark="disputes" intro="How we handle a complaint, and what you can do if you are still not satisfied." />
         <ol className="relative mt-10 grid grid-cols-1 gap-4 md:grid-cols-4">
-          <span aria-hidden="true" className="absolute left-[10%] right-[10%] top-[44px] hidden h-[3px] rounded-full bg-gradient-to-r from-[#117F21] to-[#CB9615] md:block" />
+          <span aria-hidden="true" className="absolute left-[10%] right-[10%] top-[44px] hidden h-[3px] rounded-full bg-gradient-to-r from-[#14892A] to-[#CB9615] md:block" />
           {steps.map(([k, t, b], i) => (
             <li key={k} className="relative">
               <Rise delay={i * 0.08} className="h-full rounded-3xl bg-white p-5 ring-1 ring-black/10">
-                <span className="relative flex h-12 w-12 items-center justify-center rounded-full bg-[#0A4A13] font-mono text-lg font-bold text-[#F4D27A] ring-4 ring-[#F6F8F3]">{i + 1}</span>
+                <span className="relative flex h-12 w-12 items-center justify-center rounded-full bg-[#105D1D] font-mono text-lg font-bold text-[#F4D27A] ring-4 ring-[#F6F8F3]">{i + 1}</span>
                 <p className="mt-4 text-xs font-bold uppercase tracking-[0.14em] text-[#9A6F06]">{k}</p>
                 <p className="mt-1 font-bold">{t}</p>
                 <p className="mt-1 text-sm leading-relaxed text-gray-600">{b}</p>
@@ -335,7 +335,7 @@ function Complaints() {
           ))}
         </ol>
         <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
-          <a href="tel:+2342094603955" className={cn("group flex items-center gap-4 rounded-3xl bg-[#0A4A13] p-5 text-white transition hover:bg-[#117F21]", focus)}>
+          <a href="tel:+2342094603955" className={cn("group flex items-center gap-4 rounded-3xl bg-[#105D1D] p-5 text-white transition hover:bg-[#14892A]", focus)}>
             <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-[#F4D27A]">
               <Phone className="h-6 w-6" aria-hidden="true" />
             </span>
@@ -370,8 +370,8 @@ function OurPromise() {
         <Headline id="promise-title" n="03" kicker="Our promise" title="The values behind every service" mark="every service" />
         <div className="mt-10 grid grid-cols-1 gap-5 lg:grid-cols-12">
           {mission && (
-            <Rise className="relative overflow-hidden rounded-[2rem] bg-[#0A4A13] p-7 text-white shadow-[0_40px_80px_-40px_rgba(10,46,16,0.7)] sm:p-9 lg:col-span-5">
-              <div aria-hidden="true" className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-[#117F21] blur-3xl" />
+            <Rise className="relative overflow-hidden rounded-[2rem] bg-[#105D1D] p-7 text-white shadow-[0_40px_80px_-40px_rgba(22,77,32,0.7)] sm:p-9 lg:col-span-5">
+              <div aria-hidden="true" className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-[#14892A] blur-3xl" />
               <Quote aria-hidden="true" className="absolute right-6 top-6 h-14 w-14 text-white/10" />
               <p className="relative text-xs font-bold uppercase tracking-[0.2em] text-[#F4D27A]">Our mission</p>
               <p className="relative mt-5 text-xl font-semibold leading-snug sm:text-2xl">{mission}</p>
@@ -434,7 +434,7 @@ function FullText() {
                         e.preventDefault();
                         scrollToId(`c-${s.n}`, !reduce);
                       }}
-                      className={cn("flex gap-2 rounded-xl px-2 py-1.5 text-sm text-gray-700 hover:bg-[#F6F8F3] hover:text-[#0A4A13]", focus)}
+                      className={cn("flex gap-2 rounded-xl px-2 py-1.5 text-sm text-gray-700 hover:bg-[#F6F8F3] hover:text-[#105D1D]", focus)}
                     >
                       <span className="w-6 shrink-0 font-mono text-xs font-bold text-[#CB9615]">{s.n}</span>
                       {s.title}
@@ -481,7 +481,7 @@ function FullText() {
         </div>
 
         <div className="mt-6 grid grid-cols-1 gap-3 lg:ml-[18.5rem] sm:grid-cols-2">
-          <a href={PDF} target="_blank" rel="noopener noreferrer" className={cn("group flex items-center gap-4 rounded-3xl bg-white p-5 ring-1 ring-black/10 transition hover:ring-[#117F21]/40", focus)}>
+          <a href={PDF} target="_blank" rel="noopener noreferrer" className={cn("group flex items-center gap-4 rounded-3xl bg-white p-5 ring-1 ring-black/10 transition hover:ring-[#14892A]/40", focus)}>
             <span className="flex h-14 w-12 shrink-0 items-center justify-center rounded-xl bg-[#B52026] text-xs font-bold text-white">PDF</span>
             <span className="min-w-0 flex-1">
               <span className="block font-bold leading-snug">Revised Commission’s Service Charter / Service Level Agreement</span>
@@ -490,7 +490,7 @@ function FullText() {
             <Download className="h-5 w-5 text-[#117F21] transition group-hover:translate-y-0.5" aria-hidden="true" />
             <span className="sr-only">(opens in a new tab)</span>
           </a>
-          <p className="flex gap-3 rounded-3xl bg-[#E8F5E9] p-5 text-sm text-[#0A4A13]">
+          <p className="flex gap-3 rounded-3xl bg-[#E8F5E9] p-5 text-sm text-[#105D1D]">
             <FileText className="h-5 w-5 shrink-0" aria-hidden="true" />
             This web version is for easy reading. If it differs from the signed PDF, the signed PDF is the official version.
           </p>

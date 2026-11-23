@@ -42,13 +42,13 @@ export default function Hero() {
           animate={reduce ? undefined : { x: [0, -50, 0], y: [0, 30, 0] }}
           transition={{ duration: 22, repeat: 2, ease: "easeInOut" }}
         />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(10,74,19,0.08)_1px,transparent_0)] [background-size:28px_28px] [mask-image:linear-gradient(to_bottom,black,transparent_85%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(16,93,29,0.08)_1px,transparent_0)] [background-size:28px_28px] [mask-image:linear-gradient(to_bottom,black,transparent_85%)]" />
       </div>
 
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 pb-16 pt-10 sm:pt-14 lg:grid-cols-12 lg:gap-12 lg:pb-20">
         <div className="lg:col-span-7">
-          <motion.p initial={{ opacity: 0, y: reduce ? 0 : 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease }} className="inline-flex items-center gap-2 rounded-full bg-white/80 px-3.5 py-1.5 text-sm font-semibold text-[#0A4A13] shadow-sm ring-1 ring-black/5 backdrop-blur">
-            <span className="h-2 w-2 rounded-full bg-[#117F21]" aria-hidden="true" />
+          <motion.p initial={{ opacity: 0, y: reduce ? 0 : 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease }} className="inline-flex items-center gap-2 rounded-full bg-white/80 px-3.5 py-1.5 text-sm font-semibold text-[#105D1D] shadow-sm ring-1 ring-black/5 backdrop-blur">
+            <span className="h-2 w-2 rounded-full bg-[#14892A]" aria-hidden="true" />
             National Pension Commission
           </motion.p>
           <motion.h1
@@ -57,7 +57,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.05, ease }}
             data-i18n-done={lang !== "en" ? "" : undefined}
-            className="mt-5 text-[2.4rem] font-bold leading-[1.05] tracking-tight text-[#0E2414] sm:text-6xl"
+            className="mt-5 text-[2.4rem] font-bold leading-[1.05] tracking-tight text-[#1C4226] sm:text-6xl"
           >
             {b1}
             {has && <span className="relative whitespace-nowrap text-[#117F21]">
@@ -77,7 +77,7 @@ export default function Hero() {
             <div className="mt-3 flex flex-wrap items-center gap-2">
               <span className="text-xs font-bold uppercase tracking-[0.16em] text-gray-500">Popular</span>
               {popularTasks.map((tk) => (
-                <Link key={tk.label} to={tk.href} className={cn("inline-flex min-h-9 items-center rounded-full bg-white px-3.5 text-sm font-medium text-[#0E2414] ring-1 ring-black/10 transition hover:bg-[#0A4A13] hover:text-white", focus)}>
+                <Link key={tk.label} to={tk.href} className={cn("inline-flex min-h-9 items-center rounded-full bg-white px-3.5 text-sm font-medium text-[#1C4226] ring-1 ring-black/10 transition hover:bg-[#105D1D] hover:text-white", focus)}>
                   {tk.label}
                 </Link>
               ))}
@@ -114,7 +114,7 @@ function AudiencePicker() {
 
   return (
     <div className="mt-8">
-      <p id="iam-label" className="text-sm font-bold uppercase tracking-[0.18em] text-[#0A4A13]">{t("I am a…")}</p>
+      <p id="iam-label" className="text-sm font-bold uppercase tracking-[0.18em] text-[#105D1D]">{t("I am a…")}</p>
       <LayoutGroup id="iam">
         <div role="tablist" aria-labelledby="iam-label" className="mt-3 flex flex-wrap gap-2">
           {audiences.map((x, i) => {
@@ -132,9 +132,9 @@ function AudiencePicker() {
                 tabIndex={on ? 0 : -1}
                 onClick={() => setActive(x.id)}
                 onKeyDown={(e) => onKey(e, i)}
-                className={cn("relative isolate inline-flex min-h-11 items-center gap-2 rounded-full px-4 text-[0.95rem] font-semibold transition-colors", on ? "text-white" : "bg-white text-[#0E2414] ring-1 ring-black/10 hover:ring-[#117F21]", focus)}
+                className={cn("relative isolate inline-flex min-h-11 items-center gap-2 rounded-full px-4 text-[0.95rem] font-semibold transition-colors", on ? "text-white" : "bg-white text-[#1C4226] ring-1 ring-black/10 hover:ring-[#14892A]", focus)}
               >
-                {on && <motion.span layoutId="iam-pill" className="absolute inset-0 -z-10 rounded-full bg-[#0A4A13] shadow-[0_10px_24px_-10px_rgba(10,74,19,0.7)]" transition={{ type: "spring", stiffness: 380, damping: 32 }} />}
+                {on && <motion.span layoutId="iam-pill" className="absolute inset-0 -z-10 rounded-full bg-[#105D1D] shadow-[0_10px_24px_-10px_rgba(16,93,29,0.7)]" transition={{ type: "spring", stiffness: 380, damping: 32 }} />}
                 <I className="h-4 w-4" aria-hidden="true" />
                 {x.label}
               </button>
@@ -143,7 +143,7 @@ function AudiencePicker() {
         </div>
       </LayoutGroup>
 
-      <div id="iam-panel" role="tabpanel" aria-labelledby={`iam-tab-${a.id}`} className="mt-4 overflow-hidden rounded-3xl bg-white/90 p-2 shadow-[0_24px_60px_-34px_rgba(10,46,16,0.45)] ring-1 ring-black/5 backdrop-blur">
+      <div id="iam-panel" role="tabpanel" aria-labelledby={`iam-tab-${a.id}`} className="mt-4 overflow-hidden rounded-3xl bg-white/90 p-2 shadow-[0_24px_60px_-34px_rgba(22,77,32,0.45)] ring-1 ring-black/5 backdrop-blur">
         <AnimatePresence mode="wait" initial={false}>
           <motion.ul key={a.id} initial={{ opacity: 0, y: reduce ? 0 : 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: reduce ? 0 : -6 }} transition={{ duration: 0.25 }} className="grid grid-cols-1 gap-1 sm:grid-cols-2">
             {a.tasks.slice(0, 4).map((tk) => (
@@ -151,7 +151,7 @@ function AudiencePicker() {
                 <button
                   type="button"
                   onClick={() => go(tk, navigate)}
-                  className={cn("group flex min-h-14 w-full items-center gap-3 rounded-2xl px-4 py-3 text-left text-[0.95rem] font-semibold text-[#0E2414] transition hover:bg-[#EEF6EE]", focus)}
+                  className={cn("group flex min-h-14 w-full items-center gap-3 rounded-2xl px-4 py-3 text-left text-[0.95rem] font-semibold text-[#1C4226] transition hover:bg-[#EEF6EE]", focus)}
                 >
                   <span className="flex-1">{tk.label}</span>
                   {tk.external ? (
@@ -205,7 +205,7 @@ function FeatureCard() {
   const s = slides[index];
   if (!s) return null;
   const running = playing && !hold && !reduce;
-  const ctl = cn("flex h-10 w-10 items-center justify-center rounded-full bg-white/85 text-[#0E2414] shadow-md backdrop-blur transition hover:bg-white", focus);
+  const ctl = cn("flex h-10 w-10 items-center justify-center rounded-full bg-white/85 text-[#1C4226] shadow-md backdrop-blur transition hover:bg-white", focus);
 
   return (
     <motion.div
@@ -215,7 +215,7 @@ function FeatureCard() {
       className="relative"
     >
       {/* decorative offset frame */}
-      <div aria-hidden="true" className="absolute -inset-3 -z-10 translate-x-3 translate-y-3 rounded-[2.2rem] bg-[#0A4A13]" />
+      <div aria-hidden="true" className="absolute -inset-3 -z-10 translate-x-3 translate-y-3 rounded-[2.2rem] bg-[#105D1D]" />
       <div
         role="region"
         aria-roledescription="carousel"
@@ -231,7 +231,7 @@ function FeatureCard() {
           if (Math.abs(dx) > 50) goTo(index + (dx < 0 ? 1 : -1));
           touchX.current = null;
         }}
-        className="relative h-[34rem] overflow-hidden rounded-[2rem] bg-[#0E2414] shadow-[0_40px_80px_-40px_rgba(10,46,16,0.7)] sm:h-[36rem] lg:h-full lg:min-h-[36rem]"
+        className="relative h-[34rem] overflow-hidden rounded-[2rem] bg-[#1C4226] shadow-[0_40px_80px_-40px_rgba(22,77,32,0.7)] sm:h-[36rem] lg:h-full lg:min-h-[36rem]"
       >
         <AnimatePresence initial={false}>
           <motion.img
@@ -299,14 +299,14 @@ function FeatureCard() {
               transition={{ duration: 0.5, ease }}
               className="rounded-2xl bg-white/95 px-4 py-3.5 shadow-xl backdrop-blur sm:px-5 sm:py-4"
             >
-              <p className={cn("inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-[0.14em]", s.kind === "campaign" ? "bg-[#FFF2CC] text-[#7A5200]" : "bg-[#EEF6EE] text-[#0A4A13]")}>
+              <p className={cn("inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-[0.14em]", s.kind === "campaign" ? "bg-[#FFF2CC] text-[#7A5200]" : "bg-[#EEF6EE] text-[#105D1D]")}>
                 {s.kind === "campaign" && <Megaphone className="h-3 w-3" aria-hidden="true" />}
                 {s.eyebrow}
               </p>
-              <h2 className="mt-2 line-clamp-2 text-lg font-bold leading-snug text-[#0E2414] sm:text-xl">{s.title}</h2>
+              <h2 className="mt-2 line-clamp-2 text-lg font-bold leading-snug text-[#1C4226] sm:text-xl">{s.title}</h2>
               <p className="sr-only">{s.summary}</p>
               <div className="mt-3 flex items-center justify-between gap-3">
-                <button type="button" onClick={() => go(s.cta, navigate)} className={cn("group inline-flex min-h-10 items-center gap-2 rounded-xl bg-[#0A4A13] px-3.5 text-sm font-semibold text-white transition hover:bg-[#117F21]", focus)}>
+                <button type="button" onClick={() => go(s.cta, navigate)} className={cn("group inline-flex min-h-10 items-center gap-2 rounded-xl bg-[#105D1D] px-3.5 text-sm font-semibold text-white transition hover:bg-[#14892A]", focus)}>
                   {s.cta.label}
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
                 </button>
