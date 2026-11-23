@@ -137,7 +137,7 @@ export default function MobilePage() {
         <Phone
           screen={screen}
           setScreen={(s) => { setTouring(false); setScreen(s); }}
-          className="h-[calc(100svh-210px)] max-h-[780px] min-h-[600px] rounded-[2.6rem] bg-[#F6F8F3] lg:h-[calc(100svh-150px)] lg:min-h-[620px]"
+          className="h-[calc(100svh-110px)] max-h-[880px] min-h-[720px] rounded-[2.6rem] bg-[#F6F8F3] lg:h-[calc(100svh-80px)] lg:min-h-[740px]"
         />
       </div>
       {/* "Now showing" tag, hanging off the frame */}
